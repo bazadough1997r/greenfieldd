@@ -3,26 +3,16 @@ var con = mysql.createConnection({
 host: "localhost",
 user: "root",
 password: "Lousan97*",
-database: "stock"
+database : "stock"
 });
-
 con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-  var Cars = "CREATE TABLE IF NOT EXISTS cars (id INT, brand VARCHAR(20), description VARCHAR(250), )";
+if (err) throw err;
+console.log("Connected!");
+var Cars = "CREATE TABLE IF NOT EXISTS cars (brand VARCHAR(20), description VARCHAR(250), year YEAR, price INT, img LONGBLOB, id INT PRIMARY KEY AUTO_INCREMENT)";
   con.query(Cars, function (err, result) {
     if (err) throw err;
     console.log("Table created");
   });
-});
+  });
 
-// con.connect(function(err) {
-// if (err) throw err;
-// console.log("Connected!");
-// con.query("CREATE DATABASE IF NOT EXISTS stock", function (err, result) {
-// if (err) throw err;
-// console.log("Database created");
-// });
-// });
-
-// var Cars = "CREATE TABLE cars (year VARINTEGER(4),  price VARsmallmoney, img VARimage)";
+  //var Cars = "CREATE TABLE  IF NOT EXISTS cars (brand VARCHAR(20), year VARINTEGER(4),  price VARsmallmoney, description VARCHAR(250), img VARimage)";
