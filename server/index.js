@@ -1,6 +1,5 @@
-const express = require('express')
-//  var dbmysql = require('../database-sql/index.js')
-const app = express()
+var express = require('express')
+var  app = express()
 const port = 3000
 
 app.get('/', (req, res) => {
