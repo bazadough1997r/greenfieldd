@@ -1,0 +1,35 @@
+[{
+  "brand": "BMW",
+  "year" : "2008",
+  "price" : "9990.0",
+  "description": "2008 BMW 3-Series 335i",
+  "image":"https://gaafinancial.com/service/picture/39042/1461/81af2a09c0eee8af21d81f77f5edbad9dbb5348c"
+  },
+  {
+  "brand": "BMW",
+  "year" : "2012",
+  "price" : "9450.0",
+  "description": "2012 BMW 3-Series 328i",
+  "image":"https://gaafinancial.com/service/picture/39042/1481/8dcb93b0e8c5ea33dd3674810a6b1abb6a917b27"
+  },
+  {
+  "brand": "Chevrolet",
+  "year" : "2012",
+  "price" : "10999.0",
+  "description": "2012 Chevrolet Camaro LT",
+  "image":"https://gaafinancial.com/service/picture/39042/1489/c4887f211f45d4da9ced117f56b1a91e9a98d042"
+  },
+  {
+  "brand": "Dodge",
+  "year" : "2014",
+  "price" : "11990.0",
+  "description": "2014 Dodge Charger SE",
+  "image":"https://gaafinancial.com/service/picture/39042/1473/10fd6c01c6d2e28c2e14af943f25e28b75e05080"
+  },
+  {
+  "brand": "Ford",
+  "year" : "2014",
+  "price" : "10450.0",
+  "description": "2014 Ford Flex Limited",
+  "image":"https://gaafinancial.com/service/picture/39042/1551/dc8117a98f0e4f558ab786165b7107df60c38a58"
+  }]
