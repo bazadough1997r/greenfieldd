@@ -1,10 +1,14 @@
 var mysql = require('mysql');
+
+var data = require('./data.json');
+
 var con = mysql.createConnection({
 host: "localhost",
 user: "root",
 password: "Lousan97*",
 database : "stock"
 });
+
 con.connect(function(err) {
 if (err) throw err;
 console.log("Connected!");
@@ -15,4 +19,4 @@ var Cars = "CREATE TABLE IF NOT EXISTS cars (brand VARCHAR(20), description VARC
   });
   });
 
-  //var Cars = "CREATE TABLE  IF NOT EXISTS cars (brand VARCHAR(20), year VARINTEGER(4),  price VARsmallmoney, description VARCHAR(250), img VARimage)";
+
