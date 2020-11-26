@@ -1,8 +1,8 @@
-
 var mysql = require('mysql');
-
 var data = require('./data.json');
 
+//edit your user and password
+//our database called stock
 var con = mysql.createConnection({
 host: "localhost",
 user: "root",
@@ -10,16 +10,18 @@ password: "12345678",
 database : "stock"
 });
 
+//connecting mysql and creating a table in our stock; called cars
 con.connect(function(err) {
 if (err) throw err;
-console.log("Connected!");
+console.log("MySQL Connected!!!");
 var Cars = "CREATE TABLE IF NOT EXISTS cars (brand VARCHAR(20), year YEAR, price INT, description VARCHAR(250),img LONGBLOB, id INT PRIMARY KEY AUTO_INCREMENT)";
-  con.query(Cars, function (err, result) {
-    if (err) throw err;
-    console.log("Table created");
+con.query(Cars, function (err, result) {
+  if (err) throw err;
+  console.log("Cars Table created!!!");
   });
-  });
+});
 
+//save function to see our dummy data in the mysql terminal (insert data in the columns)
 
   for (var i = 0; i < data.length; i++) {
     var inserting = `INSERT INTO cars (brand, year, price, description) VALUES (?, ?, ?, ?)`;
@@ -30,26 +32,6 @@ var Cars = "CREATE TABLE IF NOT EXISTS cars (brand VARCHAR(20), year YEAR, price
       });
   }
 
-  //con.end();
-
-  // connection.query(stmt, todo, (err, results, fields) => {
-  //   if (err) {
-  //     return console.error(err.message);
-  //   }
-  //   // get inserted id
-  //   console.log('Todo Id:' + results.insertId);
-  // });
-
-  // connection.end();
-
-
-  // for (var i = 0; i < data.length; i++) {
-  //   var inserting = `INSERT INTO cars (brand, year, price, description, image) VALUES (data[i].brand, data[i].year, data[i].price, data[i].description, data[i].image)`;
-  //   con.query(inserting, function (err, result) {
-  //     if (err) throw err;
-  //     console.log("Table inserted");
-  //     });
-  // }
 
 
 
