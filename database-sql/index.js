@@ -6,12 +6,12 @@ var data = require('./data.json');
 //our database called stock
 var con = mysql.createConnection({
 host: "localhost",
-user: "abeer",
-password: "0000",
+user: "root",
+password: "Lousan97*",
 database : "stock"
 });
 
-//connecting mysql and creating a table in our stock; called cars
+//connecting mysql and creating a 2 tables in our stock; called cars and users
 con.connect(function(err) {
 if (err) throw err;
 console.log("MySQL Connected!!!");
@@ -20,6 +20,11 @@ con.query(Cars, function (err, result) {
   if (err) throw err;
   console.log("Cars Table created!!!");
   });
+  var Users = "CREATE TABLE IF NOT EXISTS users (name VARCHAR(20), email INT, id INT PRIMARY KEY, phonenumber INT)";
+  con.query(Users, function (err, result) {
+    if (err) throw err;
+    console.log("Users Table created!!!");
+    });
 });
 
 
@@ -32,6 +37,9 @@ for (var i = 0; i < data.length; i++) {
     console.log("Table inserted");
     });
 }
+
+//save function to see user input in the mysql terminal (insert data in the columns)
+
 
 
 
