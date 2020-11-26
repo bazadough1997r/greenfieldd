@@ -1,12 +1,13 @@
+//save function to see our dummy data in the mysql terminal (insert data in the columns)
+
 var mysql = require('mysql');
 var data = require('./data.json');
-
 //edit your user and password
 //our database called stock
 var con = mysql.createConnection({
 host: "localhost",
-user: "root",
-password: "12345678",
+user: "abeer",
+password: "0000",
 database : "stock"
 });
 
@@ -37,4 +38,4 @@ for (var i = 0; i < data.length; i++) {
 
 
 
-
+module.exports.con = con;
