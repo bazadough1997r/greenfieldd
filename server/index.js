@@ -1,6 +1,6 @@
 const express = require('express');
 const myDB = require('../database-sql/index.js');
-const dbMySQL = require('../database-sql/index');
+var bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
