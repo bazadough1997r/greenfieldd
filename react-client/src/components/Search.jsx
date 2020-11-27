@@ -4,10 +4,9 @@ class Search extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      brand: ""
-      // ,
-      // year: "",
-      // price: ""
+      brand: "",
+      year: "",
+      price: ""
     }
   }
 
@@ -17,17 +16,17 @@ class Search extends React.Component {
     })
   }
 
-//   onChangeYearHandler(event){
-//     this.setState ({
-//      year: event.target.value
-//    })
-//  }
+  onChangeYearHandler(event){
+    this.setState ({
+     year: event.target.value
+   })
+ }
 
-//  onChangePriceHandler(event){
-//   this.setState ({
-//    price: event.target.value
-//  })
-// }
+ onChangePriceHandler(event){
+  this.setState ({
+   price: event.target.value
+ })
+}
 
 
 
@@ -36,13 +35,13 @@ class Search extends React.Component {
     this.props.onSubmitB(this.state.brand)
   }
 
-  // onClickYearHanlder(event){
-  //   this.props.onSubmitY(this.state.year)
-  // }
+  onClickYearHanlder(event){
+    this.props.onSubmitY(this.state.year)
+  }
 
-  // onClickPriceHanlder(event){
-  //   this.props.onSubmitP(this.state.price)
-  // }
+  onClickPriceHanlder(event){
+    this.props.onSubmitP(this.state.price)
+  }
 
 
 
@@ -59,7 +58,7 @@ class Search extends React.Component {
      >Brand</button>
 
 
-     {/* <input
+     <input
      type= "number"
      placeholder= "Search car by year"
      value = {this.state.year}
@@ -78,7 +77,7 @@ class Search extends React.Component {
      />
      <button
      onClick={this.onClickPriceHanlder.bind(this)}
-     >Price</button> */}
+     >Price</button>
 
   </div>
 )}
