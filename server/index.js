@@ -15,7 +15,8 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 app.post('/byBrand', function (req, res) {
 
-  let query =  `SELECT * FROM cars WHERE brand = ${req.body.brand}`
+  let query =  `SELECT * FROM cars WHERE brand = '${req.body.brand}'`
+  console.log(query, " hiiiiiiiiiiiiiiiiii")
   // let query = `SELECT * FROM cars`
   myDB.con.query(query , function(err, results) {
     res.send(results)

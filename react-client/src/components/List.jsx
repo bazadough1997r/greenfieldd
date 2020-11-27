@@ -17,7 +17,7 @@ render(){
         <p> {car.year}</p>
         <p> {car.price}</p>
         <p> {car.description}</p>
-        <p> {car.img}</p>
+        <img src = {car.image} width = "400" height = "400"/>
         </li>))
       }
     </div>
