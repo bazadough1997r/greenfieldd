@@ -11,13 +11,15 @@ render(){
   return (
     <div>
       {
+
         this.props.cars.map(car=>(
-        <li key = {car._id}>
+        <li key = {car.id}>
         <h3>{car.brand}</h3>
         <p> {car.year}</p>
         <p> {car.price}</p>
         <p> {car.description}</p>
-        <p> {car.img}</p>
+        <img src = {car.image} width = "250" height = "200"/>
+
         </li>))
       }
     </div>
