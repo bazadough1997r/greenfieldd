@@ -1,24 +1,25 @@
 const express = require('express');
 const myDB = require('../database-sql/index.js');
 const bodyParser = require('body-parser');
-
 const app = express();
+const port = 3000;
 
 app.use(express.static(__dirname + '/../react-client/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
 
-
 app.post('/byBrand', function (req, res) {
+  // let query =  "SELECT * FROM users WHERE brand = ?", req.body.brand;
+  // console.log(query, "query from post server")
 
- let query =  `SELECT * FROM cars WHERE brand ='${req.body.brand}';`
- console.log(query);
- //let query =  `SELECT * FROM cars;`
-  myDB.con.query(query , function(err, data) {
-    res.send(data)
-    console.log(data," hi i am the data from the respond in post server request")
-    })
+  // myDB.con.query(query , function(err, data) {
+  //   if (!err)
+  //    console.log("hiiiiiiiiiiiiiiiii",data);
+  //   else
+  //    console.log(err);
+  // })
 });
+
 // search function
 // app.post('/byBrand',function(req,res){
 //  console.log("hellooooo from post serverrrrr", req.body.brand)
@@ -32,17 +33,17 @@ app.post('/byBrand', function (req, res) {
 // // });
 // })
 //   myDB.query('SELECT * FROM cars WHERE brand =' + `${req.body.brand}` ,function(err, rows, fields) {
-//       if (err) throw err;
-//       var data=[];
-//       for(i=0;i<rows.length;i++)
-//       {
-//           data.push(rows[i].songTitle);
-//       }
-//       res.send(JSON.stringify(data));
+//   if (err) throw err;
+//   var data=[];
+//   for(i=0;i<rows.length;i++)
+//   {
+//       data.push(rows[i].songTitle);
+//   }
+//   res.send(JSON.stringify(data));
 //   });
 // });
 // app.post('/byBrand', function (req, res) {
-//    console.log("Im from the post in server for brand", req.body.brand)
+//    console.log("Im from the post in server for brand", req.body)
 //   // console.log("brand: ",req.body.brand)
 //   myDB.cars.find({brand: req.body.brand}).exec((err, data)=> { //i want our schema name
 //      console.log(data)
@@ -63,7 +64,6 @@ app.post('/byBrand', function (req, res) {
 //      res.send(data)
 //      })
 //  });
-const port = 3000;
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`)
 });
