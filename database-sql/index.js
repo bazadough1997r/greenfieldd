@@ -12,7 +12,6 @@ password: "0000",
 database : "stock"
 });
 
-
 //connecting mysql and creating a table in our stock; called cars
 con.connect(function(err) {
   if (err) throw err;
@@ -25,7 +24,6 @@ con.connect(function(err) {
 });
 
 
-
 //save function to see our dummy data in the mysql terminal (insert data in the columns)
 for (var i = 0; i < data.length; i++) {
      var inserting = `REPLACE INTO cars (brand, year, price, description, image,id) VALUES (?, ?, ?, ?, ?,?) `;
@@ -35,5 +33,10 @@ for (var i = 0; i < data.length; i++) {
             console.log("Table inserted");
          });
 }
+
+
+
+
+
 
 module.exports.con = con;
