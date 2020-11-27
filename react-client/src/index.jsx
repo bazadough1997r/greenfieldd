@@ -14,13 +14,16 @@ class App extends React.Component {
 
   //Method that handles the "brand" submit input with ajax post request to the server
   submitBrandHandler(brand) {
-    console.log(`${brand}`, "Was searched")
+    console.log(`${brand}`, "Was chosen")
     var that = this
     $.ajax({
       url: '/byBrand',
       method: 'POST',
       data: JSON.stringify({
-        brand: brand,
+        brand: brand
+        // ,
+        // year: year,
+        // price: price
       }),
       contentType: 'application/json',
       success:function (data) {

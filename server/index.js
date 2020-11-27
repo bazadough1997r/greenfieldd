@@ -14,8 +14,22 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 
 app.post('/byBrand', function (req, res) {
+  // let query = "";
+  // if((req.body.year)=== undefined){
+  //   let query =  `SELECT * FROM cars WHERE brand = '${req.body.brand}' AND  price = ${req.body.price}`
+  // }
+  //  else if((req.body.price)=== undefined){
+  //   let query =  `SELECT * FROM cars WHERE brand = '${req.body.brand}' AND  year = ${req.body.year} `
+  // }
+
+  // else if((req.body.price) === undefined && (req.body.year)=== undefined){
+  //   let query =  `SELECT * FROM cars WHERE brand = '${req.body.brand}'`
+  // }
+
   let query =  `SELECT * FROM cars WHERE brand = '${req.body.brand}'`
+  console.log(query, "helloooooooooooooooooooooo")
   myDB.con.query(query , function(err, results) {
+    console.log(results, "hiiiiiiiiiiiiiiiiiiiiii")
     res.send(results)
     })
 });
@@ -36,6 +50,12 @@ app.post('/byPrice', function (req, res) {
     })
 });
 
+// app.post('/byPrice', function (req, res) {
+//   let query =  `SELECT * FROM cars WHERE price  BETWEEN 9000 AND 10000 OR BETWEEN 11000 AND 12000`'${req.body.price}'
+//   myDB.con.query(query , function(err, results) {
+//     res.send(results)
+//     })
+// });
 
 
 const port = 3000;
