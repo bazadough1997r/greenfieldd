@@ -12,7 +12,7 @@ render(){
     <div>
       {
         this.props.cars.map(car=>(
-        <li key = {car._id}>
+        <li key = {car.id}>
         <h3>{car.brand}</h3>
         <p> {car.year}</p>
         <p> {car.price}</p>

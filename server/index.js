@@ -15,16 +15,12 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 app.post('/byBrand', function (req, res) {
 
-
-  // let query =  "SELECT * FROM users WHERE brand = ?", req.body.brand;
-  // console.log(query, "query from post server")
-
-  // myDB.con.query(query , function(err, data) {
-  //   if (!err)
-  //    console.log("hiiiiiiiiiiiiiiiii",data);
-  //   else
-  //    console.log(err);
-  // })
+  let query =  `SELECT * FROM cars WHERE brand = ${req.body.brand}`
+  // let query = `SELECT * FROM cars`
+  myDB.con.query(query , function(err, results) {
+    res.send(results)
+    console.log(results," hi i am the data from the respond in post server request")
+    })
 });
 
 
