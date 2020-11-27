@@ -1,7 +1,6 @@
-//save function to see our dummy data in the mysql terminal (insert data in the columns)
-
 var mysql = require('mysql');
 var data = require('./data.json');
+
 //edit your user and password
 //our database called stock
 var con = mysql.createConnection({
@@ -27,7 +26,6 @@ con.query(Cars, function (err, result) {
     });
 });
 
-
 //save function to see our dummy data in the mysql terminal (insert data in the columns)
 // for (var i = 0; i < data.length; i++) {
 //   var inserting = `REPLACE INTO cars (brand, year, price, description, image,id) VALUES (?, ?, ?, ?, ?,?) `;
@@ -39,11 +37,6 @@ con.query(Cars, function (err, result) {
 // }
 
 //save function to see user input in the mysql terminal (insert data in the columns)
-
-
-
-
-
 
 
 module.exports.con = con;
