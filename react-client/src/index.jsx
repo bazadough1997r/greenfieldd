@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Search from './components/Search.jsx';
-
 import { AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/core';
 import { Menu, AccountCircle } from '@material-ui/icons';
 
