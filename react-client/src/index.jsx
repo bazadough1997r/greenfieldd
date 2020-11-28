@@ -3,14 +3,12 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 
 import Search from './components/Search.jsx';
-import Button from '@material-ui/core/Button';
 
-
-// class App extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {cars: []}
-//   }
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {cars: []}
+  }
 
   //Method that handles the "brand" submit input with ajax post request to the server
   submitBrandHandler(brand) {
@@ -73,12 +71,10 @@ import Button from '@material-ui/core/Button';
         onSubmitY = {this.submitYearHandler.bind(this)}
         onSubmitP = {this.submitPriceHandler.bind(this)}
         cars = {this.state.cars}/>
+
+        {/* <List /> */}
       </div>
-
-
-
     )}
 }
 
 ReactDOM.render(<App/>, document.getElementById('app'));
-

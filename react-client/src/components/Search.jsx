@@ -1,4 +1,5 @@
 import React from 'react';
+import List from './List.jsx';
 
 export default class Search extends React.Component {
   constructor(props) {
@@ -6,18 +7,17 @@ export default class Search extends React.Component {
     this.state = {brand: "", year: "", price: ""}
   }
 
-
-
   onChangeBrandHandler(event){
     this.state.brand = event.target.value
     console.log(this.state.brand, " on Change")
     this.props.onSubmitB(this.state.brand)
     }
 
- onChangeBrandHandler(event) {
-   this.setState ({brand: event.target.value});
+  onChangeYearHandler(event){
+    this.state.year = event.target.value
+    console.log(this.state.year, " on Change")
+    this.props.onSubmitY(this.state.year)
  }
-
 
   onChangePriceHandler(event){
       this.state.price = event.target.value
@@ -25,17 +25,8 @@ export default class Search extends React.Component {
       this.props.onSubmitP(this.state.price)
   }
 
- onClickBrandHanlder(event){
-     this.props.onSubmitB(this.state.brand)
-   }
- onClickYearHanlder(event) {
-   this.props.onSubmitY(this.state.year)
- }
- onClickPriceHanlder(event) {
-   this.props.onSubmitP(this.state.price)
- }
-
   render() {
+
     return(
   <div>
 
@@ -46,7 +37,6 @@ export default class Search extends React.Component {
       <option value = "Chevrolet">Chevrolet</option>
       <option value = "Dodge">Dodge</option>
     </select>
-
 
     <select value = {this.state.value} onChange = {this.onChangeYearHandler.bind(this)}>
       <option value = "Select year">Select year</option>
@@ -63,15 +53,14 @@ export default class Search extends React.Component {
       <option value = "10999">10999</option>
       <option value = "11990">11990</option>
     </select>
-
-
- </div>
-   )
-
-}
+    {list(this.props)}
+  </div>)}
 }
 
-
-
-
-
+var list = (props) => (
+//console.log(props.cars)
+  <div>
+    {props.cars.map((car,i) =>
+      <List key = {i} car = {car}/>)}
+    </div>
+    )

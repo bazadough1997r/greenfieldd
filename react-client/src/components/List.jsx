@@ -1,13 +1,12 @@
 import React from 'react';
 
-class List extends React.Component {
+export default class List extends React.Component {
   //ONCLICK EVENT > POST REQUEST
   constructor(props) {
-    super(props);
+    super(props)
   }
 
-
-render(){
+render() {
   return (
     <div>
         <ul key = {this.props.car.id}>
@@ -19,4 +18,3 @@ render(){
         </ul>
     </div>)}
 }
-export default List;
