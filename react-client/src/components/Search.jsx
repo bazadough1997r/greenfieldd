@@ -31,12 +31,14 @@ export default class Search extends React.Component {
  <div>
     <input placeholder = "search by brand.." value = {this.state.brand} onChange= {this.onChangeBrandHandler.bind(this)}/>
     <button onClick = {this.onClickBrandHanlder.bind(this)}> search </button> <br/>
+
     <input type= "number" placeholder= "search by year.." value = {this.state.year}
-onChange= {this.onChangeYearHandler.bind(this)}/>
+     onChange= {this.onChangeYearHandler.bind(this)}/>
     <button onClick={this.onClickYearHanlder.bind(this)}> search </button> <br/>
 
+
     <input type= "number" placeholder= "search by price.." value = {this.state.price}
-onChange= {this.onChangePriceHandler.bind(this)}/>
+     onChange= {this.onChangePriceHandler.bind(this)}/>
     <button onClick={this.onClickPriceHanlder.bind(this)}> search </button>
  </div>)
 
