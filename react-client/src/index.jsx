@@ -30,7 +30,7 @@ submitBrandHandler(brand) {
   })
 }
 
-Method that handles the "year" submit input with ajax post request to the server
+//Method that handles the "year" submit input with ajax post request to the server
 submitYearHandler(year) {
   var that = this
   $.ajax({
@@ -47,7 +47,7 @@ submitYearHandler(year) {
   });
 }
 
-Method that handles the "price" submit input with ajax post request to the server
+//Method that handles the "price" submit input with ajax post request to the server
 submitPriceHandler(price) {
   var that = this
   $.ajax({

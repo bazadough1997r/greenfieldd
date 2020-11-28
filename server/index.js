@@ -9,17 +9,51 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.post('/byBrand', function (req, res) {
-  // let query =  "SELECT * FROM users WHERE brand = ?", req.body.brand;
-  // console.log(query, "query from post server")
 
-  // myDB.con.query(query , function(err, data) {
-  //   if (!err)
-  //    console.log("hiiiiiiiiiiiiiiiii",data);
-  //   else
-  //    console.log(err);
-  // })
+  let query =  `SELECT * FROM cars WHERE brand = '${req.body.brand}' `;
+  console.log(query, "query from post server")
+
+  myDB.con.query(query , function(err, data) {
+    if (!err)
+    { res.send(data)
+     console.log("hiiiiiiiiiiiiiiiii",data);
+    }
+    else
+     console.log(err);
+  })
 });
 
+
+app.post('/byYear', function (req, res) {
+
+  let query =  `SELECT * FROM cars WHERE year = '${req.body.year}' `;
+  console.log(query, "query from post server")
+
+  myDB.con.query(query , function(err, data) {
+    if (!err)
+    { res.send(data)
+     console.log("hiiiiiiiiiiiiiiiii",data);
+    }
+    else
+     console.log(err);
+  })
+});
+
+
+app.post('/byPrice', function (req, res) {
+
+  let query =  `SELECT * FROM cars WHERE price = '${req.body.price}' `;
+  console.log(query, "query from post server")
+
+  myDB.con.query(query , function(err, data) {
+    if (!err)
+    { res.send(data)
+     console.log("hiiiiiiiiiiiiiiiii",data);
+    }
+    else
+     console.log(err);
+  })
+});
 // search function
 // app.post('/byBrand',function(req,res){
 //  console.log("hellooooo from post serverrrrr", req.body.brand)

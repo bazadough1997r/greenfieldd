@@ -41,6 +41,7 @@ onChange= {this.onChangePriceHandler.bind(this)}/>
  </div>)
 
 }
+}
 
 
 
