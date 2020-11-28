@@ -33,9 +33,6 @@ for (var i = 0; i < data.length; i++) {
       });
 }
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 25ef0daa3b1641ab34f2c01ee595c5773f677e27
 module.exports.con = con;
