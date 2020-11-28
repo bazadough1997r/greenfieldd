@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-
 import Search from './components/Search.jsx';
+
+import { AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/core';
+import { Menu, AccountCircle } from '@material-ui/icons';
 
 class App extends React.Component {
   constructor(props) {
@@ -66,13 +68,12 @@ class App extends React.Component {
   render () {
     return (
       <div>
+        <h1>CarSooq</h1>
         <Search
         onSubmitB = {this.submitBrandHandler.bind(this)}
         onSubmitY = {this.submitYearHandler.bind(this)}
         onSubmitP = {this.submitPriceHandler.bind(this)}
         cars = {this.state.cars}/>
-
-        {/* <List /> */}
       </div>
     )}
 }
