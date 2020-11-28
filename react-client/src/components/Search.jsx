@@ -5,6 +5,7 @@ export default class Search extends React.Component {
     super(props)
     this.state = {brand: "", year: "", price: ""}
   }
+<<<<<<< HEAD
 
   // onChangeBrandHandler(event){
   //   this.state.brand = event.target.value
@@ -17,13 +18,13 @@ export default class Search extends React.Component {
     console.log(this.state.brand, " on Change")
     this.props.onSubmitB(this.state.brand)
     }
+=======
+>>>>>>> 25ef0daa3b1641ab34f2c01ee595c5773f677e27
 
-
-  onChangeYearHandler(event){
-    this.state.year = event.target.value
-    console.log(this.state.year, " on Change")
-    this.props.onSubmitY(this.state.year)
+ onChangeBrandHandler(event) {
+   this.setState ({brand: event.target.value});
  }
+<<<<<<< HEAD
 
 
   onChangePriceHandler(event){
@@ -31,8 +32,26 @@ export default class Search extends React.Component {
       console.log(this.state.price, " on Change")
       this.props.onSubmitP(this.state.price)
   }
+=======
+ onChangeYearHandler(event){
+   this.setState ({year: event.target.value})
+}
+ onChangePriceHandler(event){
+   this.setState ({price: event.target.value})
+ }
+>>>>>>> 25ef0daa3b1641ab34f2c01ee595c5773f677e27
 
+ onClickBrandHanlder(event){
+     this.props.onSubmitB(this.state.brand)
+   }
+ onClickYearHanlder(event) {
+   this.props.onSubmitY(this.state.year)
+ }
+ onClickPriceHanlder(event) {
+   this.props.onSubmitP(this.state.price)
+ }
 
+<<<<<<< HEAD
   render() {
     return(
   <div>
@@ -61,16 +80,26 @@ export default class Search extends React.Component {
       <option value = "10999">10999</option>
       <option value = "11990">11990</option>
     </select>
+=======
+ render() {
+   return(
+ <div>
+    <input placeholder = "search by brand.." value = {this.state.brand} onChange= {this.onChangeBrandHandler.bind(this)}/>
+    <button onClick = {this.onClickBrandHanlder.bind(this)}> search </button> <br/>
 
-    {/* <select
-    value={this.state.value}
-    onChange={this.onChangePriceHandler.bind(this)}>
-    <option value="Select price">Select price</option>
-    <option value="9000 - 10000">$9000 - $10,000</option>
-    <option value="10000 - 11000">$10,000 - $11,000</option>
-    <option value="11000 - 12000">$11,000 - $12,000</option>>
-    </select> */}
+    <input type= "number" placeholder= "search by year.." value = {this.state.year}
+     onChange= {this.onChangeYearHandler.bind(this)}/>
+    <button onClick={this.onClickYearHanlder.bind(this)}> search </button> <br/>
 
+>>>>>>> 25ef0daa3b1641ab34f2c01ee595c5773f677e27
+
+    <input type= "number" placeholder= "search by price.." value = {this.state.price}
+     onChange= {this.onChangePriceHandler.bind(this)}/>
+    <button onClick={this.onClickPriceHanlder.bind(this)}> search </button>
+ </div>
+   )
+
+<<<<<<< HEAD
 {/*
      <input
      type= "number"
@@ -93,3 +122,12 @@ export default class Search extends React.Component {
   </div>
 )}
 }
+=======
+}
+}
+
+
+
+
+
+>>>>>>> 25ef0daa3b1641ab34f2c01ee595c5773f677e27
