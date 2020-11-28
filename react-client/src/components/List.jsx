@@ -9,7 +9,8 @@ class List extends React.Component {
 render() {
   return(
     <div>
-      {this.props.cars.map(car => ( <li key = {car._id}>
+      {this.props.cars.map(car => (
+        <li key = {car._id}>
         <h3>{car.brand}</h3>
         <p>{car.year}</p>
         <p>{car.price}</p>

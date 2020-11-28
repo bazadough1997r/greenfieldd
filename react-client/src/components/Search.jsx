@@ -1,11 +1,38 @@
 import React from 'react';
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import { styled } from '@material-ui/core/styles';
+
+const MyButton = styled(Button)({
+  background: 'linear-gradient(45deg, #ffea00 30%, #ffff00 90%)',
+  border: 0,
+  borderRadius: 3,
+  boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+  color: '#1a237e',
+  padding: '10px'
+  // margin: " 10px 10px 10px 10px"
+
+  // height: 48
+
+});
+
+const MyTextField = styled(TextField)({
+  width:250,
+  padding: ' 10 10px',
+  margin: "0px 0px 10px  180px"
+
+
+})
 
 export default class Search extends React.Component {
+
+
+
   constructor(props) {
     super(props)
     this.state = {brand: "", year: "", price: ""}
-  }
 
+  }
  onChangeBrandHandler(event) {
    this.setState ({brand: event.target.value});
  }
@@ -27,20 +54,26 @@ export default class Search extends React.Component {
  }
 
  render() {
+
    return(
+
  <div>
-    <input placeholder = "search by brand.." value = {this.state.brand} onChange= {this.onChangeBrandHandler.bind(this)}/>
-    <button onClick = {this.onClickBrandHanlder.bind(this)}> search </button> <br/>
-    <input type= "number" placeholder= "search by year.." value = {this.state.year}
-onChange= {this.onChangeYearHandler.bind(this)}/>
-    <button onClick={this.onClickYearHanlder.bind(this)}> search </button> <br/>
 
-    <input type= "number" placeholder= "search by price.." value = {this.state.price}
-onChange= {this.onChangePriceHandler.bind(this)}/>
-    <button onClick={this.onClickPriceHanlder.bind(this)}> search </button>
- </div>)}
+     <MyTextField id="outlined-basic"  variant="outlined" value = {this.state.brand} onChange= {this.onChangeBrandHandler.bind(this)} size = "small" label="search by brand.."/>
+     <MyButton size ="small" style = {{fontSize :7}} variant="contained"  onClick = {this.onClickBrandHanlder.bind(this)}  >
+     search
+     </MyButton>
+    <MyTextField id="outlined-basic"  variant="outlined" value = {this.state.year} onChange= {this.onChangeYearHandler.bind(this)} size = "small" label="search by year.."/>
+    <MyButton variant="contained" style = {{fontSize :7}} onClick={this.onClickYearHanlder.bind(this)} size ="small" >
+     search
+     </MyButton>
+    <MyTextField id="outlined-basic"  variant="outlined"  value = {this.state.price} onChange= {this.onChangePriceHandler.bind(this)} size = "small" label="search by price.."/>
+    <MyButton variant="contained" style = {{fontSize :7}} onClick={this.onClickPriceHanlder.bind(this)} size ="small" >
+     search
+     </MyButton>
+
+ </div>
+ )}
 }
-
-
 
 

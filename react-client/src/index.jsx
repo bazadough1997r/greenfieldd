@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
  import $ from 'jquery';
 import List from './components/List.jsx';
 import Search from './components/Search.jsx';
-
+import About from './components/about.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -78,6 +78,8 @@ render() {
       />
 
       <List cars={this.state.cars}/>
+      <About/>
+
     </div>)}
 }
 
