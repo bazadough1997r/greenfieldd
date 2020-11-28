@@ -1,79 +1,141 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
-import { styled } from '@material-ui/core/styles';
-
-const MyButton = styled(Button)({
-  background: 'linear-gradient(45deg, #ffea00 30%, #ffff00 90%)',
-  border: 0,
-  borderRadius: 3,
-  boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-  color: '#1a237e',
-  padding: '10px'
-  // margin: " 10px 10px 10px 10px"
-
-  // height: 48
-
-});
-
-const MyTextField = styled(TextField)({
-  width:250,
-  padding: ' 10 10px',
-  margin: "0px 0px 10px  180px"
-
-
-})
+import InputLabel from '@material-ui/core/InputLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import NativeSelect from '@material-ui/core/NativeSelect';
 
 export default class Search extends React.Component {
-
-
-
   constructor(props) {
     super(props)
     this.state = {brand: "", year: "", price: ""}
-
   }
- onChangeBrandHandler(event) {
-   this.setState ({brand: event.target.value});
+  // onChangeBrandHandler(event){
+  //   this.state.brand = event.target.value
+  //   console.log(this.state.brand, " on Change")
+  //   this.props.onSubmitB(this.state.brand, this.state.year, this.state.price)
+  //   }
+  onChangeBrandHandler(event){
+    this.state.brand = event.target.value
+    console.log(this.state.brand, " on Change")
+    this.props.onSubmitB(this.state.brand)
+    }
+  onChangeYearHandler(event){
+    this.state.year = event.target.value
+    console.log(this.state.year, " on Change")
+    this.props.onSubmitY(this.state.year)
  }
- onChangeYearHandler(event){
-   this.setState ({year: event.target.value})
+  onChangePriceHandler(event){
+      this.state.price = event.target.value
+      console.log(this.state.price, " on Change")
+      this.props.onSubmitP(this.state.price)
+  }
+  render() {
+    return(
+  <div>
+     <FormControl variant="filled">
+        <InputLabel htmlFor="filled-age-native-simple">Select brand</InputLabel>
+        <Select
+          native
+          value = {this.state.value}
+          onChange = {this.onChangeBrandHandler.bind(this)}
+          inputProps={{
+            name: 'Select brand',
+            id: 'filled-age-native-simple',
+          }}
+        >
+          <option aria-label="None" value="" />
+          <option value="Select brand">Select brand</option>
+          <option value="BMW">BMW</option>
+          <option value="Ford">Ford</option>
+          <option value="Chevrolet">Chevrolet</option>
+          <option value="Dodge">Dodge</option>
+        </Select>
+      </FormControl>
+
+      <FormControl variant="filled">
+        <InputLabel htmlFor="filled-age-native-simple">Select year</InputLabel>
+        <Select
+          native
+          value = {this.state.value}
+          onChange = {this.onChangeYearHandler.bind(this)}
+          inputProps={{
+            name: 'Select year',
+            id: 'filled-age-native-simple',
+          }}
+        >
+          <option aria-label="None" value="" />
+          <option value = "Select year">Select year</option>
+          <option value = "2008">2008</option>
+          <option value = "2012">2012</option>
+          <option value = "2014">2014</option>
+        </Select>
+      </FormControl>
+
+      <FormControl variant="filled">
+        <InputLabel htmlFor="filled-age-native-simple">Select price</InputLabel>
+        <Select
+          native
+          value = {this.state.value}
+          onChange  = {this.onChangePriceHandler.bind(this)}
+          inputProps={{
+            name: 'Select price',
+            id: 'filled-age-native-simple',
+          }}
+        >
+          <option aria-label="None" value="" />
+          <option value = "Select year">Select price</option>
+     <option value = "9450">9450</option>
+      <option value = "9990">9990</option>
+      <option value = "10450">10450</option>
+      <option value = "10999">10999</option>
+      <option value = "11990">11990</option>
+        </Select>
+      </FormControl>
+
+
+
+
+
+
+
+
+
+    {/* <select value = {this.state.value} onChange = {this.onChangePriceHandler.bind(this)}>
+      <option value = "Select price">Select price</option>
+      <option value = "9450">9450</option>
+      <option value = "9990">9990</option>
+      <option value = "10450">10450</option>
+      <option value = "10999">10999</option>
+      <option value = "11990">11990</option>
+    </select> */}
+    {/* <select
+    value={this.state.value}
+    onChange={this.onChangePriceHandler.bind(this)}>
+    <option value="Select price">Select price</option>
+    <option value="9000 - 10000">$9000 - $10,000</option>
+    <option value="10000 - 11000">$10,000 - $11,000</option>
+    <option value="11000 - 12000">$11,000 - $12,000</option>>
+    </select> */}
+{/*
+     <input
+     type= "number"
+     placeholder= "Search car by year"
+     value = {this.state.year}
+     onChange= {this.onChangeYearHandler.bind(this)}
+     />
+     <button
+     onClick={this.onClickYearHanlder.bind(this)}
+     >Year</button>
+     <input
+     type= "number"
+     placeholder= "Search car by price"
+     value = {this.state.price}
+     onChange= {this.onChangePriceHandler.bind(this)}
+     />
+     <button
+     onClick={this.onClickPriceHanlder.bind(this)}
+     >Price</button> */}
+  </div>
+)}
 }
- onChangePriceHandler(event){
-   this.setState ({price: event.target.value})
- }
-
- onClickBrandHanlder(event){
-     this.props.onSubmitB(this.state.brand)
-   }
- onClickYearHanlder(event) {
-   this.props.onSubmitY(this.state.year)
- }
- onClickPriceHanlder(event) {
-   this.props.onSubmitP(this.state.price)
- }
-
- render() {
-
-   return(
-
- <div>
-
-     <MyTextField id="outlined-basic"  variant="outlined" value = {this.state.brand} onChange= {this.onChangeBrandHandler.bind(this)} size = "small" label="search by brand.."/>
-     <MyButton size ="small" style = {{fontSize :7}} variant="contained"  onClick = {this.onClickBrandHanlder.bind(this)}  >
-     search
-     </MyButton>
-    <MyTextField id="outlined-basic"  variant="outlined" value = {this.state.year} onChange= {this.onChangeYearHandler.bind(this)} size = "small" label="search by year.."/>
-    <MyButton variant="contained" style = {{fontSize :7}} onClick={this.onClickYearHanlder.bind(this)} size ="small" >
-     search
-     </MyButton>
-    <MyTextField id="outlined-basic"  variant="outlined"  value = {this.state.price} onChange= {this.onChangePriceHandler.bind(this)} size = "small" label="search by price.."/>
-    <MyButton variant="contained" style = {{fontSize :7}} onClick={this.onClickPriceHanlder.bind(this)} size ="small" >
-     search
-     </MyButton>
-
- </div>
- )}
-}
-
-
