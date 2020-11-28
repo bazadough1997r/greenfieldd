@@ -11,7 +11,7 @@ class App extends React.Component {
     this.state = {cars: []}
   }
 
-  //Method that handles the "brand" submit input with ajax post request to the server
+  //Method that handles the "brand" submit input with ajax post request to the server.
   submitBrandHandler(brand) {
     console.log(`${brand}`, "Was chosen")
     var that = this
