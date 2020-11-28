@@ -24,7 +24,7 @@ con.connect(function(err) {
 //save function to see our dummy data in the mysql terminal (insert data in the columns)
 for (var i = 0; i < data.length; i++) {
   var inserting = `REPLACE INTO cars (brand, year, price, description, image,id) VALUES (?, ?, ?, ?, ?,?) `;
-    let rows = [data[i].brand, data[i].year, data[i].price, data[i].description, data[i].image, i+1];
+    let rows = [data[i].brand, data[i].year, data[i].price, data[i].description,data[i].image,i+1];
       con.query(inserting, rows, function (err, results, fields) {
         if (err) throw err;
         console.log("Table inserted");
