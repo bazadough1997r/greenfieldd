@@ -40,7 +40,8 @@ export default class Search extends React.Component {
     <input type= "number" placeholder= "search by price.." value = {this.state.price}
      onChange= {this.onChangePriceHandler.bind(this)}/>
     <button onClick={this.onClickPriceHanlder.bind(this)}> search </button>
- </div>)
+ </div>
+   )
 
 }
 }
