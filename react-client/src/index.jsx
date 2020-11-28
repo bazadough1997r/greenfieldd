@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import List from './components/List.jsx';
+
 import Search from './components/Search.jsx';
 
 class App extends React.Component {
@@ -69,12 +69,13 @@ class App extends React.Component {
         <Search
         onSubmitB = {this.submitBrandHandler.bind(this)}
         onSubmitY = {this.submitYearHandler.bind(this)}
-        onSubmitP = {this.submitPriceHandler.bind(this)}/>
+        onSubmitP = {this.submitPriceHandler.bind(this)}
+        cars = {this.state.cars}/>
 
-        <List cars = {this.state.cars}/>
+        {/* <List /> */}
       </div>
     )}
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App/>, document.getElementById('app'));
 
