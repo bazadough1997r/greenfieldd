@@ -7,6 +7,8 @@ import Box from '@material-ui/core/Box' ;
 import LogoText from './components/logotext.jsx'
 import { styled } from '@material-ui/core/styles';
 import Search from './components/Search.jsx';
+import { AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/core';
+import { Menu, AccountCircle } from '@material-ui/icons';
 
 var MyBox = styled(Box)({
   color : '#1a237e'
