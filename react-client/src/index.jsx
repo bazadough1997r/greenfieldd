@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import List from './components/List.jsx';
+
 import Search from './components/Search.jsx';
 import Button from '@material-ui/core/Button';
-//import { Link } from 'gatsby';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -71,9 +71,8 @@ class App extends React.Component {
         <Search
         onSubmitB = {this.submitBrandHandler.bind(this)}
         onSubmitY = {this.submitYearHandler.bind(this)}
-        onSubmitP = {this.submitPriceHandler.bind(this)}/>
-        <List cars = {this.state.cars}/>
-        <Button variant="contained" color="secondary">Hello World</Button>
+        onSubmitP = {this.submitPriceHandler.bind(this)}
+        cars = {this.state.cars}/>
       </div>
 
 
@@ -81,5 +80,5 @@ class App extends React.Component {
     )}
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App/>, document.getElementById('app'));
 
