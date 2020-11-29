@@ -84,7 +84,8 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <Homepage/>
+        <Switch>
+        <Route exact path="/"> <Homepage/></Route>
         {/* <ControlledCarousel/> */}
         <Route exact path ='/login'><Login/></Route>
 
@@ -94,8 +95,10 @@ class App extends React.Component {
          onSubmitP = {this.submitPriceHandler.bind(this)}
          cars = {this.state.cars}
         /> </Route>
-         <SimpleContainer/>
+        <SimpleContainer/>
          <Footer/>
+        </Switch>
+
         </div>
     )}
 }
