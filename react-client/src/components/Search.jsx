@@ -103,7 +103,7 @@ Filter by: <FormControl variant="filled">
       <option value = "orange">Orange</option>
         </Select>
       </FormControl>
-
+{/*
       <FormControl variant="filled">
         <InputLabel htmlFor="filled-age-native-simple">Sort Price</InputLabel>
         <Select
@@ -120,7 +120,7 @@ Filter by: <FormControl variant="filled">
           <option value="highestToLowest">Highest to lowest</option>
           <option value="lowestToHighest">Lowest to highest</option>
         </Select>
-      </FormControl>
+      </FormControl> */}
       {list(this.props)}
   </div>)}
 }

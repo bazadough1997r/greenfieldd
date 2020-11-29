@@ -11,9 +11,8 @@ app.post('/search', function (req, res) {
   let brand = req.body.object.brand;
   let year = req.body.object.year;
   let colour = req.body.object.colour;
-  // let price = req.body.object.price;
 
-  if(brand !== "" && year !== "" && colour !== "" && price !== ""){
+  if(brand !== "" && year !== "" && colour !== ""){
     let query =  `SELECT * FROM cars WHERE brand = '${brand}' AND year = '${year}' AND colour = '${colour}'`
     console.log(query, "console.log(query)")
     myDB.con.query(query , function(err, results) {
@@ -42,7 +41,7 @@ app.post('/search', function (req, res) {
     })
   }
 
- else if(brand !== "" && year === "" && colour !== ""){
+ else if(brand !== "" && year === "" && colour !== "" ){
   let query =  `SELECT * FROM cars WHERE brand = '${brand}' AND colour = '${colour}'`
   console.log(query, "console.log(query)")
   myDB.con.query(query , function(err, results) {
