@@ -9,13 +9,12 @@ export default class List extends React.Component {
 render() {
   return (
     <div>
-      {this.props.cars.map(car => (
-        <ul key = {car.id}>
-        <h3>{car.brand}</h3>
-        <p>{car.year}</p>
-        <p>{car.price}</p>
-        <p>{car.description}</p>
-        <img src = {car.image} width = "250" height = "200"/>
-        </ul>))}
+        <ul key = {this.props.car.id}>
+        <h3>{this.props.car.brand}</h3>
+        <p>{this.props.car.year}</p>
+        <p>{this.props.car.price}</p>
+        <p>{this.props.car.description}</p>
+        <img src = {this.props.car.image} width = "250" height = "200"/>
+        </ul>
     </div>)}
 }
