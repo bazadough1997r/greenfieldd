@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import About from './components/about.jsx';
-import Footer from './components/footer.jsx'
+import Footer from './components/footer.jsx';
+// import Login from './components/Login.jsx';
+// import Signup from './components/Signup.jsx';
 import Box from '@material-ui/core/Box' ;
 import LogoText from './components/logotext.jsx'
 import { styled } from '@material-ui/core/styles';
@@ -82,7 +84,8 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <Homepage/>
+        <Switch>
+        <Route exact path="/"> <Homepage/></Route>
         {/* <ControlledCarousel/> */}
         <Route exact path ='/login'><Login/></Route>
 
@@ -92,8 +95,10 @@ class App extends React.Component {
          onSubmitP = {this.submitPriceHandler.bind(this)}
          cars = {this.state.cars}
         /> </Route>
-         <SimpleContainer/>
+        <SimpleContainer/>
          <Footer/>
+        </Switch>
+
         </div>
     )}
 }
