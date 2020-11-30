@@ -5,13 +5,14 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
+import { BrowserRouter } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 
 export default class Search extends React.Component {
   constructor(props) {
     super(props)
     this.state = {brand: "", year: "", colour: "", price: ""}
   }
-
   onChangeBrandHandler(event){
     this.setState({
       brand : event.target.value
@@ -43,6 +44,7 @@ export default class Search extends React.Component {
   render() {
 
     return(
+
   <div>
 Filter by: <FormControl variant="filled">
         <InputLabel htmlFor="filled-age-native-simple">Select brand</InputLabel>
@@ -103,7 +105,7 @@ Filter by: <FormControl variant="filled">
       <option value = "orange">Orange</option>
         </Select>
       </FormControl>
-{/*
+
       <FormControl variant="filled">
         <InputLabel htmlFor="filled-age-native-simple">Sort Price</InputLabel>
         <Select
@@ -120,9 +122,11 @@ Filter by: <FormControl variant="filled">
           <option value="highestToLowest">Highest to lowest</option>
           <option value="lowestToHighest">Lowest to highest</option>
         </Select>
-      </FormControl> */}
+      </FormControl>
       {list(this.props)}
-  </div>)}
+  </div>
+
+  )}
 }
 
 var list = (props) => (
