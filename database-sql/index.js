@@ -10,15 +10,20 @@ password: "0000",
 database : "stock"
 });
 
-//connecting mysql and creating a table in our stock; called cars
+//connecting mysql and creating a table in our stock; called cars & users
 con.connect(function(err) {
   if (err) throw err;
     console.log("MySQL Connected!!!");
-    var Cars = "CREATE TABLE IF NOT EXISTS cars (brand VARCHAR(20), year YEAR, price INT, colour VARCHAR(20), description VARCHAR(250),image TEXT, id INT PRIMARY KEY )";
-      con.query(Cars, function (err, result) {
-        if (err) throw err;
-        console.log("Cars Table created!!!");
-      });
+    var Cars = "CREATE TABLE IF NOT EXISTS cars (brand VARCHAR(20), year YEAR, price INT, colour VARCHAR(20), description VARCHAR(250), image TEXT, id INT PRIMARY KEY )";
+    con.query(Cars, function (err, result) {
+      if (err) throw err;
+      console.log("Cars Table created!!!");
+    });
+    var Users = "CREATE TABLE IF NOT EXISTS users (name VARCHAR(20), email VARCHAR(30), password VARCHAR(30), id INT PRIMARY KEY, phonenumber INT)";
+    con.query(Users, function (err, result) {
+      if (err) throw err;
+      console.log("Users Table created!!!");
+    });
 });
 
 //save function to see our dummy data in the mysql terminal (insert data in the columns)

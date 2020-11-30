@@ -60,9 +60,6 @@ class App extends React.Component {
 
         <Route exact path="/inventory" > <Search
          onSubmit = {this.handleSubmit.bind(this)}
-         onSubmit = {this.handleSubmit.bind(this)}
-         onSubmit = {this.handleSubmit.bind(this)}
-         onSubmit = {this.handleSubmit.bind(this)}
          cars = {this.state.cars}
         /> </Route>
         <SimpleContainer/>
