@@ -56,7 +56,7 @@ class App extends React.Component {
         <Switch>
         <Route exact path="/"> <Homepage/></Route>
         {/* <ControlledCarousel/> */}
-        <Route exact path ='/login'><Login/></Route>
+        <Route exact path ='/users/login'><Login/></Route>
 
         <Route exact path="/inventory" > <Search
          onSubmit = {this.handleSubmit.bind(this)}
