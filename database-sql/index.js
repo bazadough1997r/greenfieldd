@@ -34,7 +34,6 @@ for (var i = 0; i < data.length; i++) {
     let rows = [data[i].brand, data[i].year, data[i].price, data[i].colour, data[i].description,data[i].image,i+1];
       con.query(inserting, rows, function (err, results, fields) {
         if (err) throw err;
-        console.log("Table inserted");
       });
 }
 

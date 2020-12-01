@@ -1,45 +1,55 @@
-GET http://localhost:3000/users
-
-
+GET http://localhost:3000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUm9SbyIsImlhdCI6MTYwNjgxNDYxMX0.MM4XxqYgObNLl0fgufbelhlfX6PS7WyVzUSUPR9zd00
 ###
-POST http://localhost:3000/users
+POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-  "name": "Rawan",
-  "password": "Lousan97*"
+  "username": "RoRo"
 }
 
-###
-POST http://localhost:3000/users
-Content-Type: application/json
+# GET http://localhost:3000/users
 
-{
-  "name": "Haneen",
-  "password": "Haneeeeeen"
-}
 
-###
-POST http://localhost:3000/users/login
-Content-Type: application/json
+# ###
+# POST http://localhost:3000/users
+# Content-Type: application/json
 
-{
-  "name": "Rawan",
-  "password": "Lousan97*"
-}
-###
-POST http://localhost:3000/users/login
-Content-Type: application/json
+# {
+#   "name": "Rawan",
+#   "password": "Lousan97*"
+# }
 
-{
-  "name": "Haneeen",
-  "password": "Haneeeeeeen"
-}
-###
-POST http://localhost:3000/users/login
-Content-Type: application/json
+# ###
+# POST http://localhost:3000/users
+# Content-Type: application/json
 
-{
-  "name": "Rawan",
-  "password": "Lousan"
-}
+# {
+#   "name": "Haneen",
+#   "password": "Haneeeeeen"
+# }
+
+# ###
+# POST http://localhost:3000/users/login
+# Content-Type: application/json
+
+# {
+#   "name": "Rawan",
+#   "password": "Lousan97*"
+# }
+# ###
+# POST http://localhost:3000/users/login
+# Content-Type: application/json
+
+# {
+#   "name": "Haneeen",
+#   "password": "Haneeeeeeen"
+# }
+# ###
+# POST http://localhost:3000/users/login
+# Content-Type: application/json
+
+# {
+#   "name": "Rawan",
+#   "password": "Lousan"
+# }
