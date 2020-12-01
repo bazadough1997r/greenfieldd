@@ -19,16 +19,16 @@ con.connect(function(err) {
       if (err) throw err;
       console.log("Cars Table created!!!");
     });
-    var Users = "CREATE TABLE IF NOT EXISTS users (name VARCHAR(20), email VARCHAR(30), password VARCHAR(30), id INT PRIMARY KEY, phonenumber INT)";
+    var Users = "CREATE TABLE IF NOT EXISTS users (id int NOT NULL AUTO_INCREMENT, firstName VARCHAR(20), lastName VARCHAR(20), username VARCHAR(20), email VARCHAR(30), password VARCHAR(255), PRIMARY KEY (id))";
     con.query(Users, function (err, result) {
       if (err) throw err;
       console.log("Users Table created!!!");
+      console.log("//////////////////////");
+      console.log("//////////////////////");
     });
 });
 
 //save function to see our dummy data in the mysql terminal (insert data in the columns)
-
-
 for (var i = 0; i < data.length; i++) {
   var inserting = `REPLACE INTO cars (brand, year, price, colour, description, image,id) VALUES (?, ?, ?, ?, ?, ?, ?) `;
     let rows = [data[i].brand, data[i].year, data[i].price, data[i].colour, data[i].description,data[i].image,i+1];
@@ -36,7 +36,7 @@ for (var i = 0; i < data.length; i++) {
         if (err) throw err;
       });
 }
-
+console.log("//////////////////////");
 
 
 module.exports.con = con;
