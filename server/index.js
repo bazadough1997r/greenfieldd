@@ -70,18 +70,8 @@ app.post('/users/login', async (req, res) => {
     }
     hashedPassword = results[0].password;
     //console.log(results[0].password);
-
-  console.log("from try, HIIIIIIi", hashedPassword )
-
-  .then(async hashedPassword => {
-    if (!hashedPassword) {
-      res.send("Login denied");
-
-  //await keyword below
-}else if(await bcrypt.compare(newUser.password, profile.password)){
-        res.send("Login succeeded");
-}
-  }
+  })
+  console.log("from try, HIIIIIIi" )
   // try {
 
   //    if (await bcrypt.compare(req.body.password, hashedPassword)) {
@@ -92,9 +82,6 @@ app.post('/users/login', async (req, res) => {
   //  } catch {
   //    res.status(500).send()
   //  }
-})
-})
-
 })
 
 //JWT Authentication
