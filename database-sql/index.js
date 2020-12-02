@@ -23,8 +23,6 @@ con.connect(function(err) {
     con.query(Users, function (err, result) {
       if (err) throw err;
       console.log("Users Table created!!!");
-      console.log("//////////////////////");
-      console.log("//////////////////////");
     });
 });
 
@@ -36,7 +34,6 @@ for (var i = 0; i < data.length; i++) {
         if (err) throw err;
       });
 }
-console.log("//////////////////////");
 
 
 module.exports.con = con;

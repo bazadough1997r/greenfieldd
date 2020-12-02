@@ -4,12 +4,14 @@ const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
+const path = require('path');
 const bcrypt = require('bcrypt');
 // const hashedPassword;
 app.use(express.json());
 app.use(cors());
 require('dotenv').config();
-
+// const cookieParser = require('cookie-parser');
+// const session = require("express-session");
 
 app.use(express.static(__dirname + '/../react-client/dist'));
 app.use(bodyParser.json());
@@ -56,32 +58,25 @@ app.post('/users', async (req, res) => {
 
 
 //compare users from login page with db
-app.post('/users/login', async (req, res) => {
-  // const user = users.find(user => user.username === req.body.cred[username]);
-   //console.log(req.body);
-  let query =  `SELECT * FROM users WHERE username = '${req.body.username}'`
-  console.log(query, "this is the queryyyyyy")
-  var hashedPassword;
-  myDB.con.query(query , function(err, results) {
-    // console.log(results[0]);
-    if(!results[0]){
-        // console.log('Cannot find user!');
-        return res.status(400).send('Cannot find user!');
-    }
-    hashedPassword = results[0].password;
-    //console.log(results[0].password);
-  })
-  console.log("from try, HIIIIIIi" )
-  // try {
 
-  //    if (await bcrypt.compare(req.body.password, hashedPassword)) {
-  //      res.send('Login succeeded by Rawan! :P');
-  //    } else {
-  //      res.send('Login denied by Haneen!')
-  //    }
-  //  } catch {
-  //    res.status(500).send()
-  //  }
+app.post('/users/login', async (req, res) => {
+  username = req.body.username;
+  password = req.body.password;
+  let query =  `SELECT * FROM users WHERE username = '${req.body.username}'`
+  myDB.con.query(query , function(err, results) {
+    if(results.length > 0){
+      bcrypt.compare(password, results[0].password, (err, response)=>{
+        if(response){
+          res.send(results);
+        }
+        else {
+          res.send("wrong username/password combination")
+        }
+      })
+    }else {
+      res.send("User doesn't exist");
+    }
+})
 })
 
 //JWT Authentication
@@ -176,9 +171,11 @@ app.post('/search', function (req, res) {
 
 });
 
+app.get('*', (req,res) =>{
+  res.sendFile(path.join(__dirname+'/../react-client/dist/index.html'));
+});
 
 const port = process.env.port || 3000;
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`)
 });
-
