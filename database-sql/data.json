@@ -1,5 +1,37 @@
 [{
   "brand": "BMW",
+  "year" : "2012",
+  "price" : "9900",
+  "colour" : "blue",
+  "description": "2008 BMW 3-Series",
+  "image":"https://upload.wikimedia.org/wikipedia/commons/8/8d/BMW_G20_IMG_0167.jpg"
+  },
+  {
+  "brand": "BMW",
+  "year" : "2012",
+  "price" : "8500",
+  "colour" : "white",
+  "description": "2008 BMW 320i",
+  "image":"https://bmwsportscar.com/wp-content/uploads/2017/10/00D0D_9iQA7tXGB67_1200x900-768x576.jpg"
+  },
+  {
+  "brand": "BMW",
+  "year" : "2012",
+  "price" : "1100",
+  "colour" : "gray",
+  "description": "2012 BMW M3",
+  "image":"https://media.ed.edmunds-media.com/for-sale/56-wbskg9c51ce799030/img-1-600x400.jpg"
+  },
+  {
+  "brand": "BMW",
+  "year" : "2012",
+  "price" : "9800",
+  "colour" : "black",
+  "description": "2008 BMW 3-Series 335i",
+  "image":"https://cnet1.cbsistatic.com/img/z3dFNRa6noO4bwLFX-i4wu6Vfes=/868x488/2012/07/27/118c5228-67c3-11e3-a665-14feb5ca9861/35404275_OVR.jpg"
+  },
+  {
+  "brand": "BMW",
   "year" : "2008",
   "price" : "9990",
   "colour" : "black",

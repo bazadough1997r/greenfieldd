@@ -57,24 +57,67 @@ app.post('/users', async (req, res) => {
 })
 
 
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+  if (token == null) return res.sendStatus(401);
+
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+    if (err) return res.sendStatus(403)
+    req.user = user
+    next()
+  })
+}
 //compare users from login page with db
+// app.post('/login', (req, res) => {
+// 	username = req.body.username;
+// 	password = req.body.password;
+
+// 	myDB.query(
+// 		"SELECT * FROM users WHERE username = ?;",
+// 		username,
+// 		(err, result) => {
+// 			if (err) {
+// 				res.send({ err: err });
+// 			}
+
+// 			if (result.length > 0) {
+// 				bcrypt.compare(password, result[0].password, (error, response) => {
+// 					if (response) {
+// 						const id = result[0].id;
+// 						const token = jwt.sign({ id }, process.env.ACCESS_TOKEN_SECRET, {
+// 							expiresIn: 300,
+// 						})
+// 						req.session.user = result;
+
+// 						res.json({ auth: true, token: token, result: result });
+// 					} else {
+// 						res.send({ message: "Wrong username/password combination!" });
+// 					}
+// 				})
+// 			} else {
+// 				res.send({ message: "User doesn't exist!" })
+// 			}
+// 		})
+// })
 
 app.post('/users/login', async (req, res) => {
-  username = req.body.username;
-  password = req.body.password;
+  const username = req.body.username;
+  const password = req.body.password;
   let query =  `SELECT * FROM users WHERE username = '${req.body.username}'`
   myDB.con.query(query , function(err, results) {
     if(results.length > 0){
       bcrypt.compare(password, results[0].password, (err, response)=>{
         if(response){
-          res.send(results);
+          const accessToken = jwt.sign({ username: username }, process.env.ACCESS_TOKEN_SECRET)
+          res.json({accessToken: accessToken});
         }
         else {
-          res.send("wrong username/password combination")
+          res.send("Wrong username/password combination!")
         }
       })
     }else {
-      res.send("User doesn't exist");
+      res.send("User doesn't exist!");
     }
 })
 })
@@ -95,17 +138,7 @@ app.post('/users/login', async (req, res) => {
 //   res.json({ accessToken: accessToken });
 // })
 
-// function authenticateToken(req, res, next) {
-//   const authHeader = req.headers['authorization'];
-//   const token = authHeader && authHeader.split(' ')[1];
-//   if (token == null) return res.sendStatus(401);
 
-//   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-//     if (err) return res.sendStatus(403)
-//     req.user = user
-//     next()
-//   })
-// }
 
 
 //search

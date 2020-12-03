@@ -57,7 +57,7 @@ export default class SignIn extends React.Component {
 
   handleClick(event){
     var cred =  {username: this.state.username, password: this.state.password};
-    console.log({cred});
+    console.log("before hashing", cred);
     $.ajax({
       url: '/users/login',
       type: 'POST',
