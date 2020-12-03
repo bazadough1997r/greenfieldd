@@ -12,11 +12,9 @@ import { styled } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Header from './header.jsx';
 
-
 var MyTypography = styled(Typography) ({
   color :'#0A194F'
 })
-
 
 export default class Search extends React.Component {
   constructor(props) {
@@ -27,30 +25,25 @@ export default class Search extends React.Component {
   onChangeBrandHandler(event){
     this.setState({
       brand : event.target.value
-    },()=>{
+    },() => {
       this.props.onSubmit(this.state)
     })
   }
-
   onChangeYearHandler(event){
     this.setState ({
       year : event.target.value
-    },()=>{this.props.onSubmit(this.state)})
+    },() => {this.props.onSubmit(this.state)})
   }
-
   onChangeColourHandler(event){
     this.setState ({
       colour : event.target.value
-    },()=>{this.props.onSubmit(this.state)})
+    },() => {this.props.onSubmit(this.state)})
   }
-
   onChangePriceHandler(event){
     this.setState ({
       price : event.target.value
-    },()=>{this.props.onSubmit(this.state)})
+    },() => {this.props.onSubmit(this.state)})
   }
-
-
 
   render() {
     return(
@@ -111,7 +104,7 @@ export default class Search extends React.Component {
 
       <FormControl variant="filled">
 
-      <InputLabel htmlFor="filled-age-native-simple"   style={{margin: '50px 10px 10px 0px'}}>Colour</InputLabel>
+      <InputLabel htmlFor="filled-age-native-simple" style={{margin: '50px 10px 10px 0px'}}>Colour</InputLabel>
 
       <Select
         style={{margin: '50px 10px 10px 0px'}}
@@ -157,16 +150,14 @@ export default class Search extends React.Component {
       {list(this.props)}
 
       <Grid>
-        <MyTypography  align='center' variant='subtitle1'>&copy;{new Date().getFullYear()} CarSooq | All right reserved | Terms Of Service | Privacy</MyTypography>
+        <MyTypography align='center' variant='subtitle1'>&copy;{new Date().getFullYear()} CarSooq | All right reserved | Terms Of Service | Privacy</MyTypography>
       </Grid>
     </div>
-
   )}
 }
 
 const list = (props) => (
   <div>
-    {props.cars.map((car,i) =>
+    {props.cars.map((car, i) =>
       <List key = {i} car = {car}/>)}
-  </div>
-)
+  </div>)
