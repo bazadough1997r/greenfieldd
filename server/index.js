@@ -91,7 +91,7 @@ app.post('/login', async (req, res) => {
 // console.log(`${process.env.ACCESS_TOKEN_SECRET}`, "envvv")
 
 function authenticateToken(req, res, next) {
- // console.log( `${process.env.ACCESS_TOKEN_SECRET}`, "evvvvvvv");
+ // console.log( `${process.env.ACCESS_TOKEN_SECRET}`, "evvvvvvv");dfggfd
   console.log(req, "from posts server")
   const token = req.query.token;
  //  console.log(req, "   token");
