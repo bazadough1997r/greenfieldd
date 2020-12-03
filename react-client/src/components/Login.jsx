@@ -20,17 +20,12 @@ const MyInput = styled(TextField) ({
 
 const MyButton = styled(Button) ({
   width : 100,
-  margin : "50px 50px 200px 350px"
+  margin : "0px 100px 200px 200px"
 })
 
 const Mypaper = styled(Paper) ({
   width : 510,
   height:500
-})
-
-const Mybutton = styled(Button) ({
-  width : 100,
-  margin :"-446px 100px 10px -50px"
 })
 
 const MyGrid =styled(Grid) ({
@@ -104,11 +99,10 @@ export default class Login extends React.Component {
      <form>
        <MyInput variant="outlined" margin="normal" required fullWidth label="Username" autoFocus value={this.state.username} onChange={this.handleUsername.bind(this)}/>
        <MyInput variant="outlined" margin="normal" required fullWidth label="Password" type="password" value={this.state.password} onChange={this.handlePassword.bind(this)}/>
-       <p> <MyButton variant="contained" color="primary" fullWidth onClick={this.handleClick.bind(this)}>
+       <Link href="/signup" >Create account?..</Link>
+       <MyButton variant="contained" color="primary" fullWidth onClick={this.handleClick.bind(this)}>
             Log In
-            </MyButton> <br></br><Link href="/signup" >
-            Create account?..
-  </Link></p><br></br>
+            </MyButton> <br></br>
   <Typography  align='center' variant='subtitle1' color = 'primary'>&copy;{new Date().getFullYear()} CarSooq | All right reserved | Terms Of Service | Privacy</Typography>
      </form>
      </Mypaper>

@@ -15,10 +15,6 @@ import { Route, Switch, Link } from 'react-router-dom';
 import Login from './components/login.jsx';
 import Signup from './components/Signup.jsx';
 
-var MyBox = styled(Box)({
-  bgcolor : '#0A194F'
-})
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -42,7 +38,6 @@ class App extends React.Component {
   });
   }
 
-
   //Method that handles the "brand" submit input with ajax post request to the server
   handleSubmit(object) {
     console.log(object, "Was chosen")
@@ -60,29 +55,28 @@ class App extends React.Component {
     method: 'GET',
     success: (data)=> {
       that.updateState(data)
-      console.log(data, " im from componentDidMount")
+      console.log(data, "im from componentDidMount")
     },
-    error: (err)=> {console.log("Post Method Failed")}
+    error: (err) => {console.log("Post Method Failed")}
   });
   }
 
   render () {
     return (
-      <div>
+    <div>
         <Switch>
 
         <Route exact path="/"> <Homepage/></Route>
         <Route exact path ='/login'><Login/></Route>
         <Route exact path ='/signup'><Signup/></Route>
         <Route exact path="/inventory" > <Search
-         onSubmit = {this.handleSubmit.bind(this)}
-         cars = {this.state.cars}
-        /> </Route>
+          onSubmit = {this.handleSubmit.bind(this)}
+          cars = {this.state.cars}/> </Route>
         <SimpleContainer/>
-         <Footer/>
+        <Footer/>
 
         </Switch>
-        </div>
+      </div>
     )}
 }
 
