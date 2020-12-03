@@ -1,95 +1,71 @@
-import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Container from '@material-ui/core/Container';
 import { styled } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
+import PersonIcon from '@material-ui/icons/Person';
+import { BrowserRouter } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
+import { grey } from '@material-ui/core/colors';
+import Grid from '@material-ui/core/Grid';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import PersonIcon from '@material-ui/icons/Person';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import { BrowserRouter } from 'react-router-dom';
-import { Route, Switch, Link } from 'react-router-dom';
-import Box from '@material-ui/core/Box' ;
-import CallIcon from '@material-ui/icons/Call';
-import Header from './header.jsx'
-import { blue } from '@material-ui/core/colors';
-import { lightGreen } from '@material-ui/core/colors';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import {createMuiTheme, responsiveFontSizes, MuiThemeProvider} from '@material-ui/core';
-
-var theme = createMuiTheme();
-theme = responsiveFontSizes(theme);
 const useStyles = makeStyles((theme) => ({
-  root: {flexGrow: 1},
-  title: {flexGrow: 1},
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
 }));
-
 const MyButton = styled(Button)  ( {
-  border: 0,
- borderRadius: 3,
-  padding: '1px',
-  margin: " 20px 9px 20px 200px",
-   fontStyle:"normal",
-  fontWeight: '500px',
-  fontSize: '18px',
-  color  : '#0A194F'
-});
-
-var Mypaper = styled(Paper)({
- width : 1500,
- height:595,
- backgroundColor: '#0A194F'
-})
-
-var MyTypography = styled(Typography)({
-  color :'#0A194F'
-})
-
-export default function About () {
+    border: 0,
+   borderRadius: 3,
+    padding: '1px 30px',
+   margin: " 20px 9px 20px 100px",
+     fontStyle:"normal",
+    fontWeight: '200px',
+    fontSize: '18px',
+    color  : '#0A194F'
+  });
+export default function About() {
   const classes = useStyles();
   return (
-    <div style ={{ minHeight :'100vh', position:'relative' }}>
-      <MuiThemeProvider theme ={theme}>
-      <Header/>
-     <br></br><br></br><br></br><br></br>
-     <Grid container>
-      <Grid
-      item xs={12}
-      direction='column'
-      alignContent='stretch'
-      alignItems='stretch'
-      justify='center'
-      wrap='wrap'
-      direction="row">
-
-      <Paper style ={{ backgroundColor: '#0A194F'}}>
-      <Grid  item xs={12}
+    <div className={classes.root}>
+    <Grid  item xs={12}
       direction='column'
       alignContent='stretch'
       direction="row"
       alignItems='stretch'
       alignItems='stretch'
       justify='center'
-      wrap='wrap'>
-      <Typography component="div" style={{  color : '#F9FBE7',  fontStyle: 'italic', fontSize: 30, padding:'40px 30px 0px 30px' }} >
-      <b>Welcome to CarSooq</b><br></br><br></br>
-      CarSooq team  understands that buying a car is a significant and impactful life decision. Therefore, we like to know our customers and taking the time to build a meaningful, long-term relationship. We interview our customers because we believe in establishing or re-establishing a positive credit history, to benefit them -not only on the short term- on the long term as well.
-      </Typography></Grid>
-      <Grid style = {{padding :'5px 30px 0px 30px'}}>
-      <Grid item xs={2}>
-      <Grid><Typography component="div" style={{  color : '#F9FBE7',  fontStyle: 'italic', fontSize: 25, padding:'10px 5px 0px 5px' }} >
-      <b>Contact us</b><br></br><br></br> </Typography></Grid>
-       <CallIcon style={{ color: lightGreen[50], fontSize: 35 }}/><Grid><Typography component="div" style={{ height: '7vh' , width :'100vh', color : '#F9FBE7',  fontStyle: 'italic', fontSize: 25, padding:'10px 5px 0px 5px', margin:'-50px 10px 10px 40px' }} >    +962 7 9672 0978</Typography></Grid>
-      </Grid>
-      <MailOutlineIcon style={{ color: lightGreen[50], fontSize: 35 }}/><Grid><Typography component="div" style={{ height: '7vh' , width :'100vh', color : '#F9FBE7',  fontStyle: 'italic', fontSize: 25, padding:'10px 3px 0px 5px', margin:'-50px 10px 10px 50px' }} >carsooq@join.com</Typography></Grid>
-      </Grid>
-    </Paper> </Grid></Grid>
-    <Grid><MyTypography  align='center' variant='subtitle1'>&copy;{new Date().getFullYear()} CarSooq | All right reserved | Terms Of Service | Privacy</MyTypography></Grid>
-    </MuiThemeProvider>
+      wrap='wrap'
+      > <AppBar position="static"  color = "default">
+         <Grid  item xs={12}
+      direction='column'
+      alignContent='stretch'
+      direction="row"
+      alignItems='stretch'
+      alignItems='stretch'
+      justify='center'
+      wrap='wrap'
+      ><Toolbar >
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+          <img src = "https://scontent.famm5-1.fna.fbcdn.net/v/t1.0-9/128255422_227091088758997_7058702321390752154_n.jpg?_nc_cat=108&ccb=2&_nc_sid=730e14&_nc_eui2=AeEqFQYaN_ad4f9gK-R_00w0xeq3jpBC8OPF6reOkELw4wT-RH0yveh5W6rCgR4sTojyscWbVB4AC485fRaU9tmG&_nc_ohc=ige5aDJwuj0AX_nHzs2&_nc_oc=AQmh70KqaJc_XuRjsXfrEZ2TFCRNhUgAlWxjabqZ2UOrLvolXf7W1N34wTttPuSPf14&_nc_ht=scontent.famm5-1.fna&oh=aaea198d1eb4f019d2c150895411b2c1&oe=5FE68806"  width="150" height="70"></img>
+         <Link to ="/inventory"></Link>
+          <Link to ="/"><MyButton color="inherit"><b>HOME</b></MyButton></Link><Link to ="/inventory"><MyButton color="inherit"><b>INVENTORY</b></MyButton></Link>
+          <Link to ="/about"><MyButton color="inherit"><b>ABOUT US</b></MyButton></Link>
+          <Link to ="/login"><MyButton color="inherit"><b>LOG IN</b></MyButton></Link>
+          <IconButton><PersonIcon/></IconButton>
+        </Toolbar></Grid>
+      </AppBar></Grid>
     </div>
-  )}
+  );
+}
