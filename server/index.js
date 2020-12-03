@@ -1,3 +1,5 @@
+require("dotenv").config();
+// require("dotenv").config({path: './env.json'});
 const express = require('express');
 const myDB = require('../database-sql/index.js');
 const bodyParser = require('body-parser');
@@ -6,7 +8,7 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const path = require('path');
 const bcrypt = require('bcrypt');
-require('dotenv').config();
+
 app.use(express.json());
 app.use(cors());
 app.use(express.static(__dirname + '/../react-client/dist'));
@@ -86,14 +88,18 @@ app.post('/login', async (req, res) => {
     }
 })
 })
+// console.log(`${process.env.ACCESS_TOKEN_SECRET}`, "envvv")
+
 function authenticateToken(req, res, next) {
+ // console.log( `${process.env.ACCESS_TOKEN_SECRET}`, "evvvvvvv");
   console.log(req, "from posts server")
   const token = req.query.token;
  //  console.log(req, "   token");
    if (!token)
       res.send("we need a token");
    else{
-      jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+      jwt.verify(token, `${process.env.ACCESS_TOKEN_SECRET}`, (err, user) => {
+
           if (err)  res.send("you failed to authenticate")
           req.userId = user;
           next()
