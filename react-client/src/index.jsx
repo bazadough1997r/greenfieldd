@@ -78,7 +78,7 @@ class App extends React.Component {
 
         <Route exact path="/"> <Homepage/></Route>
         <Route exact path ='/login'><Login/></Route>
-        <Route exact path ='/users/signup'><Signup/></Route>
+        <Route exact path ='/signup'><Signup/></Route>
         <Route exact path="/inventory" > <Search
          onSubmit = {this.handleSubmit.bind(this)}
          cars = {this.state.cars}

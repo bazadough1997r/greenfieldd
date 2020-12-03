@@ -43,10 +43,10 @@ app.post('/signup', (req,res) => {
 })
 
 //Login
-app.get('/users', (req, res) => {
-  res.json(users);
-  res.status(201).send();
-})
+// app.get('/users', (req, res) => {
+//   res.json(users);
+//   res.status(201).send();
+// })
 
 //dealing with passwords for the first time
 app.post('/users', async (req, res) => {
@@ -66,6 +66,7 @@ app.post('/users', async (req, res) => {
 
 //compare users from login page with db
 app.post('/login', async (req, res) => {
+
  var  username = req.body.username;
  var  password = req.body.password;
   let query =  `SELECT * FROM users WHERE username = '${req.body.username}'`
@@ -86,11 +87,7 @@ app.post('/login', async (req, res) => {
 })
 })
 function authenticateToken(req, res, next) {
-  console.log("from posts server", req.query.token)
-  //console.log(req.headers , "hhhhhhhhhhhhhhhhhhhhhhhhh");
- //  const authHeader = req.headers['authorization'];
-  // console.log(authHeader, "   authHeader");
-  // const token = authHeader && authHeader.split(' ')[1];
+  console.log("from posts server", req)
   const token = req.query.token;
  //  console.log(req, "   token");
    if (!token)

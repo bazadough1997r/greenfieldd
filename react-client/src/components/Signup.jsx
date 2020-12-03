@@ -39,7 +39,7 @@ export default class Signup extends React.Component {
             // if hashing succeded the save the users data
             console.log(user, "hashing successeded from clientside");
             $.ajax({
-              url: "/users/signup",
+              url: "/signup",
               method: "POST",
               data: JSON.stringify(user),
               contentType: "application/json",
