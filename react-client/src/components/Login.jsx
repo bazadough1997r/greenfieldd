@@ -9,23 +9,35 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import Typography  from '@material-ui/core/Typography';
-var MyInput = styled(TextField)({
+import Box from '@material-ui/core/Box';
+import Header from './header.jsx';
+
+const MyInput = styled(TextField) ({
   color : "#0A194F",
   width: 400,
   margin: "20px 40px 50px 50px"
 })
-var MyButton = styled(Button)({
+
+const MyButton = styled(Button) ({
   width : 100,
-  margin : "40px 10px 180px 180px"
+  margin : "50px 50px 200px 350px"
 })
-var Mypaper = styled(Paper)({
+
+const Mypaper = styled(Paper) ({
   width : 510,
-  height:600
+  height:500
 })
-var MyGrid =styled(Grid)({
-  marginTop : 150
-  })
-export default class SignIn extends React.Component {
+
+const Mybutton = styled(Button) ({
+  width : 100,
+  margin :"-446px 100px 10px -50px"
+})
+
+const MyGrid =styled(Grid) ({
+  marginTop : 120
+})
+
+export default class Login extends React.Component {
   constructor(props) {
     super(props)
     this.state = {username: "", password: ""}
@@ -39,7 +51,6 @@ export default class SignIn extends React.Component {
   }
 
   loginHandler(cred){
-    // var credentials = {username: this.state.username, password: this.state.password}
     console.log(cred);
     $.ajax({
       url: '/users/login',
@@ -70,7 +81,6 @@ export default class SignIn extends React.Component {
       console.log(err, "POST req/handleClick failed!");
       }
     })
-    //this.loginHandler(cred);
   }
 
   render() {
@@ -93,7 +103,7 @@ export default class SignIn extends React.Component {
        <MyInput variant="outlined" margin="normal" required fullWidth label="Password" type="password" value={this.state.password} onChange={this.handlePassword.bind(this)}/>
        <p> <MyButton variant="contained" color="primary" fullWidth onClick={this.handleClick.bind(this)}>
             Log In
-            </MyButton> <br></br><Link href="#http://localhost:3000/users/signup" >
+            </MyButton> <br></br><Link href="/signup" >
             Create account?..
   </Link></p><br></br>
   <Typography  align='center' variant='subtitle1' color = 'primary'>&copy;{new Date().getFullYear()} CarSooq | All right reserved | Terms Of Service | Privacy</Typography>

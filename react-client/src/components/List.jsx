@@ -1,21 +1,51 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import { Grid } from '@material-ui/core';
+import GridList from '@material-ui/core/GridList';
 
 export default class List extends React.Component {
-  //ONCLICK EVENT > POST REQUEST
   constructor(props) {
     super(props)
   }
 
-render() {
-  return (
-    <div>
-        <ul key = {this.props.car.id}>
-        <h3>{this.props.car.brand}</h3>
-        <p>{this.props.car.year}</p>
-        <p>{this.props.car.price}</p>
-        <p>{this.props.car.colour}</p>
-        <p>{this.props.car.description}</p>
-        <img src = {this.props.car.image} width = "250" height = "200"/>
-        </ul>
-    </div>)}
+  render(){
+    return (
+      <div>
+        <Grid container
+        justify="flex-start"
+        alignItems="flex-start"
+        >
+          <Grid
+          key = {this.props.car.id}
+          item xs={3}>
+            <Card>
+              <CardActionArea>
+                <CardMedia
+                component="img"
+                alt="Contemplative Reptile"
+                height="200"
+                image={this.props.car.image}
+                title="Contemplative Reptile"
+                />
+                <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                {this.props.car.brand}     {" $"}{this.props.car.price}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                {this.props.car.description}   {". External body colour :"}{this.props.car.colour}
+                </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+        </Grid>
+      </div>
+  )}
 }

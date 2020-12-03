@@ -4,8 +4,10 @@ import $ from "jquery";
 import TextField from '@material-ui/core/TextField';
 import { styled } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Footer from './footer.jsx'
-var MyInput = styled(TextField)({ color : "#0A194F" })
+import Footer from './footer.jsx';
+
+var MyInput = styled(TextField)({ color : "#0A194F" });
+
 export default class Signup extends React.Component {
   constructor(props) {
     super(props)
@@ -27,7 +29,6 @@ export default class Signup extends React.Component {
       alert ("Your password is too short, try to make it 8 chars or more!")
     }
      else {
-        //console.log(info);
         // for hashing the password
         $.ajax({
           url: '/users',
@@ -93,6 +94,7 @@ export default class Signup extends React.Component {
       >
              Sign Up
             </Button></p>
+
             <Footer/>
     </form>
   </div>)}
