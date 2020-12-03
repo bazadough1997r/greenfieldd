@@ -6,25 +6,35 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const path = require('path');
 const bcrypt = require('bcrypt');
-// const hashedPassword;
+require('dotenv').config();
 app.use(express.json());
 app.use(cors());
-require('dotenv').config();
-// const cookieParser = require('cookie-parser');
-// const session = require("express-session");
-
 app.use(express.static(__dirname + '/../react-client/dist'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({extended: false}));
+
+//Get request to render all cars in stock table when opening the inventory page.
+app.get("/inventory", (req, res)=> {
+  let query =  `SELECT * FROM cars`
+    myDB.con.query(query ,(err, results)=> {
+     res.send(results)
+    })
+})
+
+app.get('*', (req,res) =>{
+  res.sendFile(path.join(__dirname+'/../react-client/dist/index.html'));
+});
 
 const users = []; //imagine its my users db
-//save data from signup page
-app.post('/users/signup', (req,res)=>{
+
+//save data from signup page to users table
+app.post('/users/signup', (req,res) => {
   let firstName = req.body.firstName;
   let lastName = req.body.lastName
   let username = req.body.username
   let email = req.body.email
   let password = req.body.password
+
   myDB.con.query(`Insert into users (firstName, lastName, username, email, password) VALUES ('${firstName}','${lastName}','${username}','${email}','${password}')`), (err, result) => {
     if (err)
      throw err;
@@ -47,15 +57,12 @@ app.post('/users', async (req, res) => {
     const hashedPassword = await bcrypt.hash(req.body.password, 10); //10 is the salting number
     const user = {firstName:req.body.firstName, lastName:req.body.lastName, username: req.body.username,email:req.body.email, password: hashedPassword };
     users.push(user);
-    //console.log(users, "users")
-    // console.log(user, "user")
     res.send(user);
   } catch {
     console.log("CATCH hashing")
     res.status(500).send();
   }
 })
-
 
 function authenticateToken(req, res, next) {
   const authHeader = req.headers['authorization'];
@@ -68,39 +75,8 @@ function authenticateToken(req, res, next) {
     next()
   })
 }
+
 //compare users from login page with db
-// app.post('/login', (req, res) => {
-// 	username = req.body.username;
-// 	password = req.body.password;
-
-// 	myDB.query(
-// 		"SELECT * FROM users WHERE username = ?;",
-// 		username,
-// 		(err, result) => {
-// 			if (err) {
-// 				res.send({ err: err });
-// 			}
-
-// 			if (result.length > 0) {
-// 				bcrypt.compare(password, result[0].password, (error, response) => {
-// 					if (response) {
-// 						const id = result[0].id;
-// 						const token = jwt.sign({ id }, process.env.ACCESS_TOKEN_SECRET, {
-// 							expiresIn: 300,
-// 						})
-// 						req.session.user = result;
-
-// 						res.json({ auth: true, token: token, result: result });
-// 					} else {
-// 						res.send({ message: "Wrong username/password combination!" });
-// 					}
-// 				})
-// 			} else {
-// 				res.send({ message: "User doesn't exist!" })
-// 			}
-// 		})
-// })
-
 app.post('/users/login', async (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
@@ -119,30 +95,25 @@ app.post('/users/login', async (req, res) => {
     }else {
       res.send("User doesn't exist!");
     }
-})
+  })
 })
 
 //JWT Authentication
 // const posts = [{username:"hanoon", password:"hanoona"},{username:"RoRo", password:"Rawaneh"}];
-
 // app.get('/posts', authenticateToken,(req, res) => {
 //   res.json(posts.filter(post => post.username === req.user.name));
 // })
 
 // app.post('/login', (req, res) => {
 //   //authenticate user step
-
 //   const username = req.body.username;
 //   const user = { username: username }
 //   const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
 //   res.json({ accessToken: accessToken });
 // })
 
-
-
-
-//search
-app.post('/search', function (req, res) {
+//search a car by filtering
+app.post('/inventory', (req, res) => {
   let brand = req.body.object.brand;
   let year = req.body.object.year;
   let colour = req.body.object.colour;
@@ -150,63 +121,58 @@ app.post('/search', function (req, res) {
 
   if(brand !== "" && year !== "" && colour !== "" && price !== "" && price == "lowestToHighest"){
     let query =  `SELECT * FROM cars WHERE brand = '${brand}' AND year = '${year}' AND colour = '${colour}' ORDER BY Price ASC`
-    console.log(query, "console.log(query)")
-    myDB.con.query(query , function(err, results) {
+    myDB.con.query(query ,(err, results)=> {
+     res.send(results)
+    })
+  }
+
+  else if(brand == "all"){
+    let query =  `SELECT * FROM cars`
+    myDB.con.query(query , (err, results)=> {
      res.send(results)
     })
   }
 
   else if(brand !== "" && year !== "" && colour !== "" && price !== "" && price == "highestToLowest"){
     let query =  `SELECT * FROM cars WHERE brand = '${brand}' AND year = '${year}' AND colour = '${colour}' ORDER BY Price DESC`
-    console.log(query, "console.log(query)")
-    myDB.con.query(query , function(err, results) {
+    myDB.con.query(query , (err, results)=> {
      res.send(results)
     })
   }
 
-
-
   else if(brand !== "" && year === "" && colour === "" && price === ""){
     let query =  `SELECT * FROM cars WHERE  brand = '${brand}'`
-    console.log(query, "console.log(query)")
-    myDB.con.query(query , function(err, results) {
+    myDB.con.query(query , (err, results)=> {
     res.send(results)
+    console.log(results)
     })
- }
+  }
 
- else if(brand !== "" && year !== "" && colour === "" && price === ""){
+  else if(brand !== "" && year !== "" && colour === "" && price === ""){
     let query =  `SELECT * FROM cars WHERE  brand = '${brand}' AND year = '${year}'`
-    console.log(query, "console.log(query)")
-    myDB.con.query(query , function(err, results) {
+    myDB.con.query(query , (err, results)=> {
     res.send(results)
     })
   }
 
+  else if(brand !== "" && year !== "" && colour !== "" && price === ""){
+    let query =  `SELECT * FROM cars WHERE  brand = '${brand}' AND year = '${year}' AND colour = '${colour}'`
+    myDB.con.query(query , (err, results)=> {
+    res.send(results)
+    })
+  }
 
-
- else if(brand !== "" && year !== "" && colour !== "" && price === ""){
-  let query =  `SELECT * FROM cars WHERE  brand = '${brand}' AND year = '${year}' AND colour = '${colour}'`
-  console.log(query, "console.log(query)")
-  myDB.con.query(query , function(err, results) {
-  res.send(results)
-  })
-}
-
-
-
- else if(brand !== "" && year === "" && colour !== "" && price === ""){
-  let query =  `SELECT * FROM cars WHERE brand = '${brand}' AND colour = '${colour}'`
-  console.log(query, "console.log(query)")
-  myDB.con.query(query , function(err, results) {
-  res.send(results)
-  })
-}
-
+  else if(brand !== "" && year === "" && colour !== "" && price === ""){
+    let query =  `SELECT * FROM cars WHERE brand = '${brand}' AND colour = '${colour}'`
+    myDB.con.query(query , (err, results)=> {
+    res.send(results)
+    })
+  }
 });
 
-app.get('*', (req,res) =>{
-  res.sendFile(path.join(__dirname+'/../react-client/dist/index.html'));
-});
+// app.get('*', (req,res) =>{
+//   res.sendFile(path.join(__dirname+'/../react-client/dist/index.html'));
+// });
 
 const port = process.env.port || 3000;
 app.listen(port, () => {
