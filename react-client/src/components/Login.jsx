@@ -53,12 +53,12 @@ export default class Login extends React.Component {
   loginHandler(cred){
     console.log(cred);
     $.ajax({
-      url: '/users/login',
+      url: '/posts',
       type: 'POST',
-      data: {cred},
+      data: {token},
       dataType: "json",
-      success: function(data){
-        console.log("POST req/login sent successfully!", data);
+      success: function(auth){
+        console.log("POST req/login sent successfully!", auth);
       },
       error: function(err){
       console.log(err, "POST req/login failed!");
@@ -68,14 +68,18 @@ export default class Login extends React.Component {
 
   handleClick(event){
     var cred =  {username: this.state.username, password: this.state.password};
-    console.log("before hashing", cred);
+   // console.log({cred});
+    var that = this;
     $.ajax({
       url: '/users/login',
       type: 'POST',
       data: cred,
       dataType: "json",
       success: function(data){
-        console.log("POST req/handleClick sent successfully!", data);
+        console.log("POST req/handleClick sent successfully!", data.accessToken);
+        localStorage.setItem('token', data.accessToken);
+        //setJwt(data.token);
+        that.loginHandler(data.accessToken);
       },
       error: function(err){
       console.log(err, "POST req/handleClick failed!");

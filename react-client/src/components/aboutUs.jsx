@@ -46,8 +46,8 @@ render() {
           <Link to ="/"><MyButton color="inherit">HOME</MyButton></Link>
           <Link to ="/inventory"><MyButton color="inherit">INVENTORY</MyButton></Link>
           <Link to ="/about"><MyButton color="inherit">ABOUT US</MyButton></Link>
-          <Link to ="/users/login"><MyButton color="inherit">LOG IN</MyButton></Link>
-          <Link to ="/users/signup"><MyButton color="inherit">REGISTER</MyButton></Link>
+          <Link to ="/login"><MyButton color="inherit">LOG IN</MyButton></Link>
+          <Link to ="/signup"><MyButton color="inherit">REGISTER</MyButton></Link>
           <IconButton>
             <PersonIcon/></IconButton>
         </MyToolbar>

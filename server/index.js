@@ -28,7 +28,7 @@ app.get('*', (req,res) =>{
 const users = []; //imagine its my users db
 
 //save data from signup page to users table
-app.post('/users/signup', (req,res) => {
+app.post('/signup', (req,res) => {
   let firstName = req.body.firstName;
   let lastName = req.body.lastName
   let username = req.body.username
@@ -64,39 +64,84 @@ app.post('/users', async (req, res) => {
   }
 })
 
-function authenticateToken(req, res, next) {
-  const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1];
-  if (token == null) return res.sendStatus(401);
-
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-    if (err) return res.sendStatus(403)
-    req.user = user
-    next()
-  })
-}
-
 //compare users from login page with db
-app.post('/users/login', async (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
+app.post('/login', async (req, res) => {
+ var  username = req.body.username;
+ var  password = req.body.password;
   let query =  `SELECT * FROM users WHERE username = '${req.body.username}'`
   myDB.con.query(query , function(err, results) {
     if(results.length > 0){
       bcrypt.compare(password, results[0].password, (err, response)=>{
         if(response){
-          const accessToken = jwt.sign({ username: username }, process.env.ACCESS_TOKEN_SECRET)
-          res.json({accessToken: accessToken});
+          const accessToken = jwt.sign({ username: username }, process.env.ACCESS_TOKEN_SECRET);
+          res.json({ accessToken: accessToken });
         }
         else {
-          res.send("Wrong username/password combination!")
+          res.send("wrong username/password combination")
         }
       })
     }else {
-      res.send("User doesn't exist!");
+      res.send("User doesn't exist");
     }
-  })
 })
+})
+function authenticateToken(req, res, next) {
+  console.log("from posts server", req.query.token)
+  //console.log(req.headers , "hhhhhhhhhhhhhhhhhhhhhhhhh");
+ //  const authHeader = req.headers['authorization'];
+  // console.log(authHeader, "   authHeader");
+  // const token = authHeader && authHeader.split(' ')[1];
+  const token = req.query.token;
+ //  console.log(req, "   token");
+   if (!token)
+      res.send("we need a token");
+   else{
+      jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+          if (err)  res.send("you failed to authenticate")
+          req.userId = user;
+          next()
+        })
+   }
+}
+app.get('/posts', authenticateToken,(req, res) => {
+    // console.log(req.body, res)
+    res.send("you are Authenticated");
+//  res.json(posts.filter(post => post.username === req.user.name));
+})
+
+// function authenticateToken(req, res, next) {
+//   const authHeader = req.headers['authorization'];
+//   const token = authHeader && authHeader.split(' ')[1];
+//   if (token == null) return res.sendStatus(401);
+
+//   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+//     if (err) return res.sendStatus(403)
+//     req.user = user
+//     next()
+//   })
+// }
+
+// //compare users from login page with db
+// app.post('/users/login', async (req, res) => {
+//   const username = req.body.username;
+//   const password = req.body.password;
+//   let query =  `SELECT * FROM users WHERE username = '${req.body.username}'`
+//   myDB.con.query(query , function(err, results) {
+//     if(results.length > 0){
+//       bcrypt.compare(password, results[0].password, (err, response)=>{
+//         if(response){
+//           const accessToken = jwt.sign({ username: username }, process.env.ACCESS_TOKEN_SECRET)
+//           res.json({accessToken: accessToken});
+//         }
+//         else {
+//           res.send("Wrong username/password combination!")
+//         }
+//       })
+//     }else {
+//       res.send("User doesn't exist!");
+//     }
+//   })
+// })
 
 //JWT Authentication
 // const posts = [{username:"hanoon", password:"hanoona"},{username:"RoRo", password:"Rawaneh"}];
