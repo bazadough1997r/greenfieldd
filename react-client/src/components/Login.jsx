@@ -57,8 +57,8 @@ export default class Login extends React.Component {
       method: 'GET',
       data: token,
       contentType: "application/json",
-      success: function(auth){
-        console.log(auth, "get req/login sent successfully!");
+      success: function(data){
+        console.log(data, "get req/login sent successfully!");
       },
       error: function(err){
       console.log(err, "get req/login failed!");
