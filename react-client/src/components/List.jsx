@@ -35,7 +35,7 @@ export default class List extends React.Component {
                 title="Contemplative Reptile"
                 />
                 <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography variant="h5" component="h2">
                 {this.props.car.brand}     {" $"}{this.props.car.price}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">

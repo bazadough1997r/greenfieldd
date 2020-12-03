@@ -22,6 +22,5 @@ const Footer = () => {
           <MyPaper > &copy;{new Date().getFullYear()} CarSooq | All right reserved | Terms Of Service | Privacy</MyPaper>
         </MyGrid>
         </div>
-  )
-}
+  )}
 export default Footer;

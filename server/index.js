@@ -87,7 +87,7 @@ app.post('/login', async (req, res) => {
 })
 })
 function authenticateToken(req, res, next) {
-  console.log("from posts server", req)
+  console.log(req, "from posts server")
   const token = req.query.token;
  //  console.log(req, "   token");
    if (!token)

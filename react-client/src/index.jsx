@@ -15,11 +15,6 @@ import { Route, Switch, Link } from 'react-router-dom';
 import Login from './components/login.jsx';
 import Signup from './components/Signup.jsx';
 
-// import About from './components/about.jsx';
-// import SignIn from './components/Login.jsx';
-// import Signup from './components/Signup.jsx';
-// import ControlledCarousel from './components/slider.jsx';
-
 var MyBox = styled(Box)({
   bgcolor : '#0A194F'
 })

@@ -55,10 +55,10 @@ export default class Login extends React.Component {
     $.ajax({
       url: '/posts',
       method: 'GET',
-      data: JSON.stringify(token),
+      data: token,
       contentType: "application/json",
       success: function(auth){
-        console.log("get req/login sent successfully!", auth);
+        console.log(auth, "get req/login sent successfully!");
       },
       error: function(err){
       console.log(err, "get req/login failed!");

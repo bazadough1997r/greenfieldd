@@ -43,7 +43,9 @@ export default class Signup extends React.Component {
               method: "POST",
               data: JSON.stringify(user),
               contentType: "application/json",
-              success: (data) => { console.log(data, "post method successeded ") },
+              success: (data) => { console.log(data, "post method successeded ")
+                                  window.location = "http://localhost:3000/login"
+            },
               error: (err) => { console.log(err, "post method failed") }
             })
 
