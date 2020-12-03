@@ -55,13 +55,14 @@ export default class Login extends React.Component {
     $.ajax({
       url: '/posts',
       method: 'GET',
-      data: token,
+      data: {token},
       contentType: "application/json",
       success: function(data){
         console.log(data, "get req/login sent successfully!");
+
       },
       error: function(err){
-      console.log(err, "get req/login failed!");
+        console.log(err, "get req/login failed!");
       }
     })
   }
@@ -106,7 +107,7 @@ export default class Login extends React.Component {
        <MyInput variant="outlined" margin="normal" required fullWidth label="Password" type="password" value={this.state.password} onChange={this.handlePassword.bind(this)}/>
        <p> <MyButton variant="contained" color="primary" fullWidth onClick={this.handleClick.bind(this)}>
             Log In
-            </MyButton> <br></br><Link href="/signup" >
+            </MyButton> <br></br><Link href="/signup">
             Create account?..
   </Link></p><br></br>
   <Typography  align='center' variant='subtitle1' color = 'primary'>&copy;{new Date().getFullYear()} CarSooq | All right reserved | Terms Of Service | Privacy</Typography>
