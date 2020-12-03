@@ -23,10 +23,6 @@ app.get("/inventory", (req, res)=> {
     })
 })
 
-app.get('*', (req,res) =>{
-  res.sendFile(path.join(__dirname+'/../react-client/dist/index.html'));
-});
-
 const users = []; //imagine its my users db
 
 //save data from signup page to users table
@@ -91,21 +87,20 @@ app.post('/login', async (req, res) => {
 // console.log(`${process.env.ACCESS_TOKEN_SECRET}`, "envvv")
 
 function authenticateToken(req, res, next) {
- // console.log( `${process.env.ACCESS_TOKEN_SECRET}`, "evvvvvvv");dfggfd
-  console.log(req, "from posts server")
-  const token = req.query.token;
- //  console.log(req, "   token");
+  console.log( req.query.token.accessToken, "evvvvvvv");
+  //console.log(req.query.token, "from posts server")
+  const token = req.query.token.accessToken;
    if (!token)
       res.send("we need a token");
    else{
-      jwt.verify(token, `${process.env.ACCESS_TOKEN_SECRET}`, (err, user) => {
-
+      jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
           if (err)  res.send("you failed to authenticate")
-          req.userId = user;
-          next()
+         req.userId = user;
+         next()
         })
    }
 }
+
 app.get('/posts', authenticateToken,(req, res) => {
     // console.log(req.body, res)
     res.send("you are Authenticated");
@@ -218,9 +213,9 @@ app.post('/inventory', (req, res) => {
   }
 });
 
-// app.get('*', (req,res) =>{
-//   res.sendFile(path.join(__dirname+'/../react-client/dist/index.html'));
-// });
+app.get('*', (req,res) =>{
+  res.sendFile(path.join(__dirname+'/../react-client/dist/index.html'));
+});
 
 const port = process.env.port || 3000;
 app.listen(port, () => {

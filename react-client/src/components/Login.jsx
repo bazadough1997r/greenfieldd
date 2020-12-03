@@ -46,21 +46,19 @@ export default class Login extends React.Component {
   }
 
   loginHandler(token){
-
     $.ajax({
       url: '/posts',
       method: 'GET',
-      data: token,
+      data: {token},
       contentType: "application/json",
       success: function(data){
         console.log(data, "get req/login sent successfully!");
       },
       error: function(err){
-      console.log(err, "get req/login failed!");
+        console.log(err, "get req/login failed!");
       }
     })
   }
-
   handleClick(){
     var cred =  {username: this.state.username, password: this.state.password};
     var that = this;
@@ -99,7 +97,7 @@ export default class Login extends React.Component {
      <form>
        <MyInput variant="outlined" margin="normal" required fullWidth label="Username" autoFocus value={this.state.username} onChange={this.handleUsername.bind(this)}/>
        <MyInput variant="outlined" margin="normal" required fullWidth label="Password" type="password" value={this.state.password} onChange={this.handlePassword.bind(this)}/>
-       <Link href="/signup" >Create account?..</Link>
+       <Link href="/signup" > <Typography style={{margin:'10px 30px 40px 50px'}}>Create account?..</Typography></Link>
        <MyButton variant="contained" color="primary" fullWidth onClick={this.handleClick.bind(this)}>
             Log In
             </MyButton> <br></br>
