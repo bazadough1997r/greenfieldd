@@ -4,9 +4,26 @@ import $ from "jquery";
 import TextField from '@material-ui/core/TextField';
 import { styled } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Footer from './footer.jsx';
+import Alert from '@material-ui/lab/Alert';
+import Snackbar from '@material-ui/core/Snackbar';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Paper';
 
-var MyInput = styled(TextField)({ color : "#0A194F" });
+var MyInput = styled(TextField)({ color : "#0A194F", width: 200, margin: "0px 0px 30px 30px" });
+var MyTextField = styled(TextField)({
+  color : "#0A194F",
+  width: 400,
+  margin: "0px 0px 30px 30px"
+})
+var MyButton = styled(Button)({
+  width : 100,
+  margin : "40px 10px 180px 180px"
+})
+var Mypaper = styled(Paper)({
+  width : 510,
+  height:600
+})
 
 export default class Signup extends React.Component {
   constructor(props) {
@@ -48,56 +65,64 @@ export default class Signup extends React.Component {
             },
               error: (err) => { console.log(err, "post method failed") }
             })
-
          },
           error: (err) => { console.log(err, "hashing failed") }
         })
-
   }
   }
 
   render() {
-    return (
+    return(
   <div>
+     <Grid
+    alignItems ='center'
+    alignContent ='center'
+    container
+    direction="row"
+    justify="center"
+    alignItems="center"
+    justify ='center'>
+<Mypaper>
+<pre>                       <img src = "https://scontent.famm5-1.fna.fbcdn.net/v/t1.0-9/128255422_227091088758997_7058702321390752154_n.jpg?_nc_cat=108&ccb=2&_nc_sid=730e14&_nc_eui2=AeEqFQYaN_ad4f9gK-R_00w0xeq3jpBC8OPF6reOkELw4wT-RH0yveh5W6rCgR4sTojyscWbVB4AC485fRaU9tmG&_nc_ohc=ige5aDJwuj0AX_nHzs2&_nc_oc=AQmh70KqaJc_XuRjsXfrEZ2TFCRNhUgAlWxjabqZ2UOrLvolXf7W1N34wTttPuSPf14&_nc_ht=scontent.famm5-1.fna&oh=aaea198d1eb4f019d2c150895411b2c1&oe=5FE68806"  width="150" height="70"></img>
+    </pre>
     <form>
-      <p>First name:
-        <MyInput
+        <p><MyInput
         id="outlined-basic" label="First name" variant="outlined"
         name = "firstName"
         onChange = {this.onChangeHandle}
-        /></p>
-      <p>Last name:
+        />
         <MyInput
          id="outlined-basic" label="Last name" variant="outlined"
          name = "lastName"
         onChange = {this.onChangeHandle}
          /></p>
-         <p>Username:
-        <MyInput
-        id="outlined-basic" label="Username" variant="outlined"
+        <MyTextField
+        id="outlined-basic" label="userName" variant="outlined"
         name = "username"
         onChange = {this.onChangeHandle}
-        /></p>
-      <p>Email:
-        <MyInput
+        />
+
+        <MyTextField
          id="outlined-basic" label="Email" variant="outlined"
          name = "email"
         onChange = {this.onChangeHandle}
-          /></p>
-      <p>Password:
-         <MyInput
+          />
+
+         <MyTextField
          id="outlined-basic" label="Password"  type="password" variant="outlined"
          name = "password"
         onChange = {this.onChangeHandle}
-         /></p>
-      <p><Button
-      variant="contained" color="primary" fullWidth
+         />
+
+      <MyButton
+      variant="contained" color="primary"   fullWidth
       onClick = {this.submitHandle}
       >
              Sign Up
-            </Button></p>
-
-            <Footer/>
+            </MyButton>
+            <Typography  align='center' variant='subtitle1' color = 'primary'>&copy;{new Date().getFullYear()} CarSooq | All right reserved | Terms Of Service | Privacy</Typography>
     </form>
+    </Mypaper>
+    </Grid>
   </div>)}
 }
