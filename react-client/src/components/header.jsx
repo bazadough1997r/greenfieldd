@@ -42,6 +42,19 @@ export default class Header extends React.Component {
   constructor(props) {
     super(props)
   }
+
+  handlePersonIconClick(e){
+    e.preventDefault();
+    console.log('Person Icon clicked.');
+    if(localStorage.length > 0){
+      window.location = "http://localhost:3000/profile";
+    }
+    else{
+      window.location = "http://localhost:3000/signup";
+    }
+
+  }
+
   render() {
     return(
       <div>
@@ -56,7 +69,7 @@ export default class Header extends React.Component {
               <Link to ="/about" style={{ textDecoration: 'none' }}><MyButton color="inherit"><b>ABOUT US</b></MyButton></Link>
               <Link to ="/signup" style={{ textDecoration: 'none' }}><MyButton color="inherit"><b>REGISTER</b></MyButton></Link>
               <Link to ="/login" style={{ textDecoration: 'none' }}><MyButton color="inherit"><b>LOG IN</b></MyButton></Link>
-              <IconButton><PersonIcon/></IconButton>
+              <IconButton  ><PersonIcon onClick={this.handlePersonIconClick.bind(this)}/></IconButton>
               </Grid>
             </MyToolbar>
           </AppBar>
