@@ -50,7 +50,7 @@ export default function NaveBar() {
 
           <Typography component="div" style={{ height: '50vh' , width :'50vh', color : '#0A194F',  fontStyle: 'italic', fontSize: 30, padding:'60px 60px 60px 60px' }} >
           <pre><b>CarSooq</b></pre><br></br>
-          Welcome `username` to CarSooq where you can easily pick your dream car!!
+          Welcome to CarSooq where you can easily pick your dream car!
           </Typography>
 
           <form>

@@ -11,49 +11,45 @@ import Typography from '@material-ui/core/Typography'
 import { styled } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Header from './header.jsx';
-
+// import Card from './cards.jsx';
+// import DisplayCars from './displayCar.jsx';
 var MyTypography = styled(Typography) ({
   color :'#0A194F'
 })
-
 export default class Search extends React.Component {
   constructor(props) {
     super(props)
       this.state = {brand: "", year: "", colour: "", price: ""}
   }
-
   onChangeBrandHandler(event){
     this.setState({
       brand : event.target.value
-    },() => {
+    },()=>{
       this.props.onSubmit(this.state)
     })
   }
   onChangeYearHandler(event){
     this.setState ({
       year : event.target.value
-    },() => {this.props.onSubmit(this.state)})
+    },()=>{this.props.onSubmit(this.state)})
   }
   onChangeColourHandler(event){
     this.setState ({
       colour : event.target.value
-    },() => {this.props.onSubmit(this.state)})
+    },()=>{this.props.onSubmit(this.state)})
   }
   onChangePriceHandler(event){
     this.setState ({
       price : event.target.value
-    },() => {this.props.onSubmit(this.state)})
+    },()=>{this.props.onSubmit(this.state)})
   }
-
   render() {
+    console.log("aboooood")
     return(
     <div>
       <Header/><br></br><br></br>
-
       <FormControl variant="filled">
-
       <InputLabel htmlFor="filled-age-native-simple" style={{margin: '50px 10px 10px 10px' }}>Brand</InputLabel>
-
       <Select
         style={{margin: '50px 10px 10px 10px' }}
         native
@@ -63,7 +59,6 @@ export default class Search extends React.Component {
         name: 'Select brand',
         id: 'filled-age-native-simple',
       }}>
-
         <option aria-label="None" value="" />
         <option value="all">Select All</option>
         <option value="BMW">BMW</option>
@@ -71,13 +66,9 @@ export default class Search extends React.Component {
         <option value="Chevrolet">Chevrolet</option>
         <option value="Dodge">Dodge</option>
       </Select>
-
       </FormControl> {' '}
-
       <FormControl variant="filled">
-
       <InputLabel htmlFor="filled-age-native-simple" style={{margin: '50px 10px 10px 0px'}}>Year</InputLabel>
-
       <Select
         style={{margin: '50px 10px 10px 0px'}}
         native
@@ -87,7 +78,6 @@ export default class Search extends React.Component {
         name: 'Select year',
         id: 'filled-age-native-simple',
       }}>
-
         <option aria-label="None" value="" />
         <option value = "2007">2007</option>
         <option value = "2008">2008</option>
@@ -99,13 +89,9 @@ export default class Search extends React.Component {
         <option value = "2017">2017</option>
         <option value = "2020">2020</option>
       </Select>
-
       </FormControl>{' '}
-
       <FormControl variant="filled">
-
-      <InputLabel htmlFor="filled-age-native-simple" style={{margin: '50px 10px 10px 0px'}}>Colour</InputLabel>
-
+      <InputLabel htmlFor="filled-age-native-simple"   style={{margin: '50px 10px 10px 0px'}}>Colour</InputLabel>
       <Select
         style={{margin: '50px 10px 10px 0px'}}
         native
@@ -115,7 +101,6 @@ export default class Search extends React.Component {
         name: 'Select colour',
         id: 'filled-age-native-simple',
       }}>
-
       <option aria-label="None" value="" />
       <option value = "black">Black</option>
       <option value = "gray">Gray</option>
@@ -123,13 +108,9 @@ export default class Search extends React.Component {
       <option value = "blue">Blue</option>
       <option value = "orange">Orange</option>
       </Select>
-
       </FormControl>{' '}
-
       <FormControl variant="filled">
-
       <InputLabel htmlFor="filled-age-native-simple" style={{margin: '50px 10px 10px 0px'}}>Price</InputLabel>
-
       <Select
         style={{margin: '50px 10px 10px 0px'}}
         native
@@ -139,25 +120,27 @@ export default class Search extends React.Component {
         name: 'Select price',
         id: 'filled-age-native-simple',
       }}>
-
         <option aria-label="None" value="" />
         <option value="highestToLowest">Highest to lowest</option>
         <option value="lowestToHighest">Lowest to highest</option>
       </Select>
-
       </FormControl>
-
-      {list(this.props)}
-
+        {list(this.props) }
+      {/* {displayCars(this.props)} */}
       <Grid>
-        <MyTypography align='center' variant='subtitle1'>&copy;{new Date().getFullYear()} CarSooq | All right reserved | Terms Of Service | Privacy</MyTypography>
+        <MyTypography  align='center' variant='subtitle1'>&copy;{new Date().getFullYear()} CarSooq | All right reserved | Terms Of Service | Privacy</MyTypography>
       </Grid>
     </div>
   )}
 }
-
 const list = (props) => (
-  <div>
-    {props.cars.map((car, i) =>
-      <List key = {i} car = {car}/>)}
-  </div>)
+  <Grid container
+  spacing = {3}
+  justify="flex-start"
+  alignItems="flex-start"
+  direction = "row"
+  >
+    {props.cars.map((car,id) =>
+      <List key = {id} car = {car}/>)}
+   </Grid>
+)
