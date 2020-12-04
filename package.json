@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server/index.js",
-    "react-dev": "webpack -d --watch"
+    "react-dev": "webpack -d --watch",
+    "heroku-postbuild": "cd greenfieldd && npm install --only=dev && npm install && npm run react-dev"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.12.7",
