@@ -52,7 +52,7 @@ class App extends React.Component {
   componentDidMount() {
     var that = this
   $.ajax({
-    url: '/inventory',
+    url: '/allcars',
     method: 'GET',
     success: (data)=> {
       that.updateState(data)

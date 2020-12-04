@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 //Get request to render all cars in stock table when opening the inventory page.
-app.get("/inventory", (req, res)=> {
+app.get("/allcars", (req, res)=> {
   let query =  `SELECT * FROM cars`
     myDB.con.query(query ,(err, results)=> {
      res.send(results)
