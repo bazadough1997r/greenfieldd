@@ -14,7 +14,7 @@ const MyText = styled(Typography)({
 const LogoText = () => {
   return (
     <Grid>
-      <MyText component="h2" gutterBottom>
+      <MyText component="h2">
         SELL ONE, BUY ANOTHER
       </MyText>
     </Grid>
