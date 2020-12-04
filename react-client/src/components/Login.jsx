@@ -31,7 +31,8 @@ const Mypaper = styled(Paper) ({
 const MyGrid =styled(Grid) ({
   marginTop : 120
 })
-
+let formUsernameIsValid = false;
+let formPasswordIsValid  = false;
 export default class Login extends React.Component {
   constructor(props) {
     super(props)
@@ -40,9 +41,12 @@ export default class Login extends React.Component {
 
   handleUsername(event){
     this.setState({username : event.target.value})
+    if(this.state.username !== undefined)formUsernameIsValid = true;
   }
   handlePassword(event){
     this.setState({password : event.target.value})
+    if(this.state.password !== undefined)formPasswordIsValid = true;
+    //console.log(formIsValid, "mdkwlllllllkllkmllllllll")
   }
 
   loginHandler(token){
@@ -52,11 +56,14 @@ export default class Login extends React.Component {
       data: {token},
       contentType: "application/json",
       success: function(data){
-        console.log(data, "get req/login sent successfully!");
-        window.location = "http://localhost:3000/profile";
+          console.log(data, "get req/login sent successfully!");
+          //console.log(formIsValid, "jjjjjjjjjjjjjjjjjjjjjjjjjjjj")
+           if(formUsernameIsValid && formPasswordIsValid){
+               window.location = "http://localhost:3000/profile";
+           }
       },
       error: function(err){
-        console.log(err, "get req/login failed!");
+          console.log(err, "get req/login failed!");
       }
     })
   }

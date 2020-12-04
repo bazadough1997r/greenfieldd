@@ -90,10 +90,10 @@ function authenticateToken(req, res, next) {
   //console.log(req.query.token, "from posts server")
   const token = req.query.token.accessToken;
    if (!token)
-      res.send("we need a token");
+      res.status(400).send("we need a token");
    else{
       jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-          if (err)  res.send("you failed to authenticate")
+          if (err)  res.status(400).send("you failed to authenticate")
          req.userId = user;
          next()
         })
@@ -102,7 +102,7 @@ function authenticateToken(req, res, next) {
 
 app.get('/posts', authenticateToken,(req, res) => {
     // console.log(req.body, res)
-    res.send("you are Authenticated");
+    res.status(200).send("you are Authenticated");
 //  res.json(posts.filter(post => post.username === req.user.name));
 })
 
