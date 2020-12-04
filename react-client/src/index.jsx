@@ -14,6 +14,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Route, Switch, Link } from 'react-router-dom';
 import Login from './components/login.jsx';
 import Signup from './components/Signup.jsx';
+import NaveBar from './components/profile.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -68,6 +69,7 @@ class App extends React.Component {
 
         <Route exact path="/"> <Homepage/></Route>
         <Route exact path ='/login'><Login/></Route>
+        <Route exact path="/profile"> <NaveBar/></Route>
         <Route exact path ='/signup'><Signup/></Route>
         <Route exact path="/inventory" > <Search
           onSubmit = {this.handleSubmit.bind(this)}
