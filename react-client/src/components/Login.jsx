@@ -32,17 +32,28 @@ const MyGrid =styled(Grid) ({
   marginTop : 120
 })
 
+let formUsernameIsValid = false;
+let formPasswordIsValid  = false;
+
 export default class Login extends React.Component {
   constructor(props) {
     super(props)
     this.state = {username: "", password: ""}
   }
 
+
   handleUsername(event){
     this.setState({username : event.target.value})
+    if(this.state.username !== undefined)formUsernameIsValid = true;
+    sendUser(this.state.username);
   }
+
+
+
   handlePassword(event){
     this.setState({password : event.target.value})
+    if(this.state.password !== undefined)formPasswordIsValid = true;
+    //console.log(formIsValid, "mdkwlllllllkllkmllllllll")
   }
 
   loginHandler(token){
@@ -52,11 +63,14 @@ export default class Login extends React.Component {
       data: {token},
       contentType: "application/json",
       success: function(data){
-        console.log(data, "get req/login sent successfully!");
-        window.location = "http://localhost:3000/profile";
+          console.log(data, "get req/login sent successfully!");
+          //console.log(formIsValid, "jjjjjjjjjjjjjjjjjjjjjjjjjjjj")
+           if(formUsernameIsValid && formPasswordIsValid){
+               window.location = "http://localhost:3000/profile";
+           }
       },
       error: function(err){
-        console.log(err, "get req/login failed!");
+          console.log(err, "get req/login failed!");
       }
     })
   }
@@ -69,8 +83,8 @@ export default class Login extends React.Component {
       data: JSON.stringify(cred),
       contentType: "application/json",
       success: function(data){
-        console.log("POST req/handleClick sent successfully!", data);
-        localStorage.setItem('token', data);
+        console.log("POST req/handleClick sent successfully!", data.accessToken);
+        localStorage.setItem('token', data.accessToken);
         //setJwt(data.token);
         that.loginHandler(data);
       },
@@ -108,4 +122,9 @@ export default class Login extends React.Component {
      </Grid>
   </div>
   )}
+}
+
+module.export=  function sendUser(user){
+  console.log(user)
+  return user;
 }
