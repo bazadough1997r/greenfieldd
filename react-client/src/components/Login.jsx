@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Footer from './footer.jsx'
 import { styled } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';

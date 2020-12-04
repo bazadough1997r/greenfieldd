@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Header from './components/header.jsx';
-import Footer from './components/footer.jsx';
 import Box from '@material-ui/core/Box' ;
 import LogoText from './components/logotext.jsx';
 import { styled } from '@material-ui/core/styles';
@@ -75,7 +74,6 @@ class App extends React.Component {
           onSubmit = {this.handleSubmit.bind(this)}
           cars = {this.state.cars}/> </Route>
         <SimpleContainer/>
-        <Footer/>
 
         </Switch>
       </div>
