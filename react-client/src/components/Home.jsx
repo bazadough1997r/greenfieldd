@@ -26,9 +26,8 @@ const Homepage = () => {
       <Grid><Header/></Grid><br></br><br></br>
       <Grid><LogoText/></Grid>
       <SwipeableTextMobileStepper/>
-      <MyTypography  align='center' variant='subtitle1'>&copy;{new Date().getFullYear()} CarSooq | All right reserved | Terms Of Service | Privacy</MyTypography>
+      <MyTypography align='center' variant='subtitle1'>&copy;{new Date().getFullYear()} CarSooq | All right reserved | Terms Of Service | Privacy</MyTypography>
       </div>
     </MyBox>
-  )
-}
+  )}
 export default Homepage;

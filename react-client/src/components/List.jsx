@@ -1,4 +1,6 @@
 import React from 'react';
+// import $ from 'jquery';
+// import ReactDOM from 'react-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -19,8 +21,10 @@ export default class List extends React.Component {
     return (
       <div>
         <Grid container
-        justify="flex-start"
-        alignItems="flex-start"
+          spacing = "3"
+          justify="flex-start"
+          alignItems="flex-start"
+          direction = "row"
         >
           <Grid
           key = {this.props.car.id}
@@ -35,11 +39,11 @@ export default class List extends React.Component {
                 title="Contemplative Reptile"
                 />
                 <CardContent>
-                <Typography variant="h5" component="h2">
-                {this.props.car.brand}     {" $"}{this.props.car.price}
+                <Typography gutterBottom variant="h5" component="h2">
+                {this.props.car.brand} {" $"} {this.props.car.price}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                {this.props.car.description}   {". External body colour :"}{this.props.car.colour}
+                {this.props.car.description} {". External body colour :"} {this.props.car.colour}
                 </Typography>
                 </CardContent>
               </CardActionArea>
