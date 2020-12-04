@@ -43,6 +43,7 @@ export default class Header extends React.Component {
     super(props);
   }
 
+  //checking if there's a token for the person who's pressing on the account icon
   handlePersonIconClick(e) {
     e.preventDefault();
     console.log("Person Icon clicked.");
@@ -53,6 +54,7 @@ export default class Header extends React.Component {
     }
   }
 
+  //rendering the header that contains the pages, each redirected to its path
   render() {
     return (
       <div>

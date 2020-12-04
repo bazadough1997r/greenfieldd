@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import $ from "jquery";
 import Header from "./header.jsx";
-import LogoText from "./logotext.jsx";
 import Box from "@material-ui/core/Box";
 import { styled } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -17,6 +16,7 @@ const MyTypography = styled(Typography)({
   color: "#FAFAFA",
 });
 
+//the home page that contains the header, and the image slider
 const Homepage = () => {
   return (
     <MyBox bgcolor="#0A194F">
@@ -27,7 +27,6 @@ const Homepage = () => {
         <br></br>
         <br></br>
         <Grid>
-          <LogoText />
         </Grid>
         <SwipeableTextMobileStepper />
         <MyTypography align="center" variant="subtitle1">
@@ -38,4 +37,5 @@ const Homepage = () => {
     </MyBox>
   );
 };
+
 export default Homepage;

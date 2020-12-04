@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import $ from "jquery";
 import Header from "./components/header.jsx";
 import Box from "@material-ui/core/Box";
-import LogoText from "./components/logotext.jsx";
 import { styled } from "@material-ui/core/styles";
 import Search from "./components/Search.jsx";
 import SimpleContainer from "./components/qout.jsx";
