@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/index.js",
-    "react-dev": "webpack -d --watch",
-    "heroku-postbuild": "cd car-sooq && npm install --only=dev && npm install && npm run build"
+    "react-dev": "webpack -d --watch"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.12.7",
