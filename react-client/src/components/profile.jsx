@@ -74,18 +74,20 @@ export default function NaveBar() {
 function handleLogoutClick(e) {
   e.preventDefault();
   console.log('The link was clicked.');
+  localStorage.clear();
+  window.location = "http://localhost:3000/";
 
-  $.ajax({
-    url: '/logout',
-    method: 'POST',
-    data: {},
-    contentType: "application/json",
-    success: function(data){
-        console.log(data, "post logout sent successfully!");
-    },
-    error: function(err){
-        console.log(err, "post logout failed!");
-    }
-  })
+  // $.ajax({
+  //   url: '/logout',
+  //   method: 'POST',
+  //   data: {},
+  //   contentType: "application/json",
+  //   success: function(data){
+  //       console.log(data, "post logout sent successfully!");
+  //   },
+  //   error: function(err){
+  //       console.log(err, "post logout failed!");
+  //   }
+  // })
 
 }

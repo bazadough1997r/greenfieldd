@@ -83,8 +83,8 @@ export default class Login extends React.Component {
       data: JSON.stringify(cred),
       contentType: "application/json",
       success: function(data){
-        console.log("POST req/handleClick sent successfully!", data);
-        localStorage.setItem('token', data);
+        console.log("POST req/handleClick sent successfully!", data.accessToken);
+        localStorage.setItem('token', data.accessToken);
         //setJwt(data.token);
         that.loginHandler(data);
       },
