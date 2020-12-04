@@ -53,6 +53,7 @@ export default class Login extends React.Component {
       contentType: "application/json",
       success: function(data){
         console.log(data, "get req/login sent successfully!");
+        window.location = "http://localhost:3000/profile";
       },
       error: function(err){
         console.log(err, "get req/login failed!");

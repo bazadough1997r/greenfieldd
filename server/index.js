@@ -84,7 +84,6 @@ app.post('/login', async (req, res) => {
     }
 })
 })
-// console.log(`${process.env.ACCESS_TOKEN_SECRET}`, "envvv")
 
 function authenticateToken(req, res, next) {
   console.log( req.query.token.accessToken, "evvvvvvv");
