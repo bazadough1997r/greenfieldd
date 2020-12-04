@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import { Button } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { BrowserRouter } from 'react-router-dom';
@@ -54,11 +54,10 @@ export default function NaveBar() {
           </Typography>
 
           <form>
-            <Mybutton
-            variant="contained" color="primary"   fullWidth
-            >
+            <Button
+            variant="contained" color="primary"  fullWidth>
             Log Out
-            </Mybutton>
+            </Button>
           </form>
 
           </Mypaper>
