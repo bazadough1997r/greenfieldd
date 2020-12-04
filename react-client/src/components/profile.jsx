@@ -54,11 +54,11 @@ export default function NaveBar() {
           </Typography>
 
           <form>
-            <Mybutton
+            <Button
             variant="contained" color="primary"   fullWidth
             >
             Log Out
-            </Mybutton>
+            </Button>
           </form>
 
           </Mypaper>
