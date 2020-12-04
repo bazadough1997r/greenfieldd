@@ -44,7 +44,6 @@ export default class Search extends React.Component {
     },()=>{this.props.onSubmit(this.state)})
   }
   render() {
-    console.log("aboooood")
     return(
     <div>
       <Header/><br></br><br></br>
