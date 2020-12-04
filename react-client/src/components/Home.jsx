@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Header from './header.jsx';
-import SimpleContainer from './aboutUs.jsx';
 import LogoText from './logotext.jsx';
 import Box from '@material-ui/core/Box' ;
 import { styled } from '@material-ui/core/styles';
