@@ -65,6 +65,7 @@ export default class Search extends React.Component {
         <Header />
         <br></br>
         <br></br>
+        <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
         <FormControl variant="filled">
           <InputLabel
             htmlFor="filled-age-native-simple"
@@ -158,8 +159,8 @@ export default class Search extends React.Component {
             <option value="lowestToHighest">Lowest to highest</option>
           </Select>
         </FormControl>
+        </div>
         {list(this.props)}
-        {/* {displayCars(this.props)} */}
         <Grid>
           <MyTypography align="center" variant="subtitle1">
             &copy;{new Date().getFullYear()} CarSooq | All right reserved |

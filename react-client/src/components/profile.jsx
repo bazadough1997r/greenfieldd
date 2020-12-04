@@ -15,11 +15,13 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Header from "./header.jsx";
 import Box from "@material-ui/core/Box";
+
 const Mypaper = styled(Paper)({
   margin: "50px",
   width: 510,
   height: 500,
 });
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -28,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
 }));
+
 var MyBox = styled(Box)({
   backgroundColor: "#0A194F",
 });
@@ -35,7 +38,7 @@ var MyBox = styled(Box)({
 export default function NaveBar() {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div className={classes.root} >
       <MyBox>
         <Header />
         <Grid
@@ -82,6 +85,7 @@ export default function NaveBar() {
     </div>
   );
 }
+
 function handleLogoutClick(e) {
   e.preventDefault();
   console.log("The link was clicked.");
