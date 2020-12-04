@@ -106,6 +106,15 @@ app.get('/posts', authenticateToken,(req, res) => {
 //  res.json(posts.filter(post => post.username === req.user.name));
 })
 
+
+app.post('/logout',(req, res) => {
+  // console.log(req.body, res)
+ // console.log(Storage.token)
+  res.status(200).send("you are not Authenticated anymore");
+//  res.json(posts.filter(post => post.username === req.user.name));
+})
+
+
 // function authenticateToken(req, res, next) {
 //   const authHeader = req.headers['authorization'];
 //   const token = authHeader && authHeader.split(' ')[1];

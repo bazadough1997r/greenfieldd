@@ -31,18 +31,25 @@ const Mypaper = styled(Paper) ({
 const MyGrid =styled(Grid) ({
   marginTop : 120
 })
+
 let formUsernameIsValid = false;
 let formPasswordIsValid  = false;
+
 export default class Login extends React.Component {
   constructor(props) {
     super(props)
     this.state = {username: "", password: ""}
   }
 
+
   handleUsername(event){
     this.setState({username : event.target.value})
     if(this.state.username !== undefined)formUsernameIsValid = true;
+    sendUser(this.state.username);
   }
+
+
+
   handlePassword(event){
     this.setState({password : event.target.value})
     if(this.state.password !== undefined)formPasswordIsValid = true;
@@ -115,4 +122,9 @@ export default class Login extends React.Component {
      </Grid>
   </div>
   )}
+}
+
+module.export=  function sendUser(user){
+  console.log(user)
+  return user;
 }
