@@ -14,7 +14,7 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const tutorialSteps = [
   {
     imgPath:
-      'https://images.pexels.com/photos/707046/pexels-photo-707046.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+      'https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
   },
   {
     imgPath:
@@ -22,19 +22,19 @@ const tutorialSteps = [
   },
   {
     imgPath:
-      'https://images.pexels.com/photos/1335077/pexels-photo-1335077.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+      'https://images.pexels.com/photos/3422964/pexels-photo-3422964.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
   },
   {
     imgPath:
-      'https://images.pexels.com/photos/733745/pexels-photo-733745.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+      'https://images.pexels.com/photos/3311574/pexels-photo-3311574.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
   },
   {
     imgPath:
-      'https://images.pexels.com/photos/1149137/pexels-photo-1149137.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+      'https://images.pexels.com/photos/627721/pexels-photo-627721.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
   },
   {
     imgPath:
-      'https://images.pexels.com/photos/2710043/pexels-photo-2710043.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+      'https://images.pexels.com/photos/3342697/pexels-photo-3342697.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
   },
   {
     imgPath:
