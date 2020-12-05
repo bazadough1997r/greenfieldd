@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node server/index.js",
     "react-dev": "webpack -d --watch",
-    "server-dev": "nodemon server/index.js"
+    "heroku-postbuild": "npm run build"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.12.7",
@@ -51,6 +52,7 @@
     "react-scripts": "3.4.4",
     "react-swipeable-views": "^0.13.9",
     "react-test-renderer": "^17.0.1",
+    "serve": "^11.3.2",
     "uuid": "^8.3.1"
   }
 }
