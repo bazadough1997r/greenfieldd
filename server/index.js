@@ -24,6 +24,8 @@ app.get("/allcars", (req, res) => {
     })
 })
 
+const users = [];
+
 //save data from signup page to users table in mysql
 app.post('/signup', (req, res) => {
     let firstName = req.body.firstName;
@@ -42,7 +44,7 @@ app.post('/signup', (req, res) => {
 //Login
 //dealing with passwords (hashing and salting)
 app.post('/users', async (req, res) => {
-    console.log("Hello hashing")//, req.body.username)
+    console.log("Hello hashing", req.body.username)
     try {
         console.log("TRY hashing")
         const salt = await bcrypt.genSalt();
@@ -64,7 +66,7 @@ app.post('/users', async (req, res) => {
 
 //compare users from login page with db, if the user is verified, give him a token if not, detect if the user exist or if his username matches with his hashed password
 app.post('/login', async (req, res) => {
-    console.log("Helloooooooooooooooooooooooooooooooo hashing")
+
     var username = req.body.username;
     var password = req.body.password;
     let query = `SELECT * FROM users WHERE username = '${req.body.username}'`
