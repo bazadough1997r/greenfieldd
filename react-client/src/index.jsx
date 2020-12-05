@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import $ from "jquery";
 import Header from "./components/header.jsx";
 import Box from "@material-ui/core/Box";
-import LogoText from "./components/logotext.jsx";
 import { styled } from "@material-ui/core/styles";
 import Search from "./components/Search.jsx";
 import SimpleContainer from "./components/qout.jsx";
@@ -28,9 +27,9 @@ class App extends React.Component {
     this.getData = this.getData.bind(this);
   }
 
+  //getting (retrieving) user choice of filters from the server (token)
   getData(object) {
     var that = this;
-    console.log(object, "isss chosen");
     $.ajax({
       url: "/inventory",
       method: "POST",
@@ -48,7 +47,6 @@ class App extends React.Component {
 
   //Method that handles the "brand" submit input with ajax post request to the server
   handleSubmit(object) {
-    console.log(object, "Was chosen");
     this.getData(object);
   }
   //instead of doing a get request use this to get the data in the post request inside the success function
@@ -63,7 +61,6 @@ class App extends React.Component {
       method: "GET",
       success: (data) => {
         that.updateState(data);
-        console.log(data, "im from componentDidMount");
       },
       error: (err) => {
         console.log("Post Method Failed");
@@ -71,6 +68,8 @@ class App extends React.Component {
     });
   }
 
+
+  //redirect to pages using react routes, and express routes handlers back in the server
   render() {
     return (
       <div>

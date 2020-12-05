@@ -1,31 +1,38 @@
 # GreenField
 
+# Project title:
 CarSooq Project
+Our website is considered about selling cars for X company to grab the buyers attention.
+It narrows the buyers wide searches in different websites or even live searchings.
+As a wider point of view for our future built out website it will have features that even sellers (individuals or companies) can advertise their cars which they want to sell so we will have even a wider web and a great connection between buyers and sellers.
 
-Name the product in a way the reader (i.e. your target customers) will understand.
-CarSooq
+# Motivation:
+This website is basically built for successful interaction between buyers and sellers.
+For buyers it dicreases the time, effort and money looking for the car that fits their needs, also in the future built out they will be able to order the car online with full description and inspection report.
+On the other hand for sellers their cars won't need a big place to show their cars and sell them in real life, all they need is signing up creating an account to display all their cars without even bothering about attracting their audience because the website will already have million of viewers.
+In one sentence it simplifies car trading by connecting sellers & buyers in one simple platform.
 
-Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
-Anyone who is interested in buying or selling cars
+# Logo:
+<img src= "images/CarSooqLogo.png" width = "100">
+![](images/CarSooqLogo.png)
+Tech/framework used:
+  Technologies built with:
+  - Backend:
+    - mySQL for the database
+    - NodeJS ExpressJS in server side.
+  - Frontend
+    - ReactJS in client side.
 
-Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
-CarSooq is a web application that connects car buyers with sellers.
-Sellers can make ads for their cars and their ads will be displayed for buyers, & buyers will be able to use this app as a search engine for their car of interest. 
+# Features:
+The features used are searching/ filtering the cars by brand, year, colour and sorting by price. Making an account and having a profile so you can buy or sell cars in the future.
+Installation:
+- npm install
+- npm start
+- npm run react-dev.
 
-Describe the problem your product solves.
-The struggle of finding the best car that suits you as a buyer, and the struggle for sellers to reach their customers.
-
-Describe how your product elegantly solves the problem. 
-Simplifying car trading by connecting sellers & buyers in one simple platform.
-
-A quote from a spokesperson in your company. 
-“We’re aiming to be the best company for car trading in the MENA region”
-
-Describe how easy it is to get started
-You just have to register in CarSooq, and continue with one of the two options; buy OR sell.
-
-Provide a quote from a hypothetical customer that describes how they experienced the benefit. 
-“This one of the best-designed sites of its kind, wonderfully easy to use, so user-friendly!”
-
-Wrap it up and give pointers on where the reader should go next.
-Now you can check the app “app link”
+# How to use?:
+- Sign up to be authorized to all the pages of this website.
+- Log in to enter your profile.
+- Go to inventory and use the filter engine to narrow your search and get the desired car that hit your standards
+- Check the about us page to know more and to contact us.
+- Try CarSooq now "the link"
