@@ -16,6 +16,8 @@ export default class List extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  //rendering cars in stock and their info
   render() {
     return (
       <Grid container item key={this.props.car.id} xs={4}>
@@ -23,13 +25,13 @@ export default class List extends React.Component {
           <CardActionArea>
             <CardMedia
               component="img"
-              alt="Contemplative Reptile"
+              alt="imageee"
               height="200"
               image={this.props.car.image}
-              title="Contemplative Reptile"
+              title="imageee"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
+              <Typography variant="h5" component="h2">
                 {this.props.car.brand} {" $"}
                 {this.props.car.price}
               </Typography>

@@ -15,11 +15,20 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Header from "./header.jsx";
 import Box from "@material-ui/core/Box";
+
 const Mypaper = styled(Paper)({
   margin: "50px",
   width: 510,
   height: 500,
 });
+
+const MyButton = styled(Button)({
+  width: 100,
+  margin: "auto",
+  backgroundColor: "#0A194F",
+  color: "#F9FBE7",
+});
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -28,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
 }));
+
 var MyBox = styled(Box)({
   backgroundColor: "#0A194F",
 });
@@ -35,7 +45,7 @@ var MyBox = styled(Box)({
 export default function NaveBar() {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div className={classes.root} >
       <MyBox>
         <Header />
         <Grid
@@ -44,8 +54,7 @@ export default function NaveBar() {
           container
           direction="row"
           justify="center"
-          alignItems="center"
-          justify="center">
+          alignItems="center">
           <Mypaper>
             <Typography
               component="div"
@@ -64,13 +73,13 @@ export default function NaveBar() {
               Welcome to CarSooq where you can easily pick your dream car!
             </Typography>
             <form>
-              <Button
+              <MyButton
                 variant="contained"
                 color="primary"
                 fullWidth
                 onClick={handleLogoutClick}>
                 Log Out
-              </Button>
+              </MyButton>
             </form>
           </Mypaper>
         </Grid>
@@ -82,6 +91,8 @@ export default function NaveBar() {
     </div>
   );
 }
+
+//when user clcks on logout => dlete token from local storage
 function handleLogoutClick(e) {
   e.preventDefault();
   console.log("The link was clicked.");

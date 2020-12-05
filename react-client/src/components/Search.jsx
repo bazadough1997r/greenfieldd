@@ -11,14 +11,17 @@ import Typography from "@material-ui/core/Typography";
 import { styled } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Header from "./header.jsx";
+
 var MyTypography = styled(Typography)({
   color: "#0A194F",
 });
+
 export default class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = { brand: "", year: "", colour: "", price: "" };
   }
+
   onChangeBrandHandler(event) {
     this.setState(
       {
@@ -29,6 +32,7 @@ export default class Search extends React.Component {
       },
     );
   }
+
   onChangeYearHandler(event) {
     this.setState(
       {
@@ -39,6 +43,7 @@ export default class Search extends React.Component {
       },
     );
   }
+
   onChangeColourHandler(event) {
     this.setState(
       {
@@ -49,6 +54,7 @@ export default class Search extends React.Component {
       },
     );
   }
+
   onChangePriceHandler(event) {
     this.setState(
       {
@@ -59,12 +65,15 @@ export default class Search extends React.Component {
       },
     );
   }
+
+  //search by using filters with the options in stock
   render() {
     return (
       <div>
         <Header />
         <br></br>
         <br></br>
+        <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
         <FormControl variant="filled">
           <InputLabel
             htmlFor="filled-age-native-simple"
@@ -158,8 +167,8 @@ export default class Search extends React.Component {
             <option value="lowestToHighest">Lowest to highest</option>
           </Select>
         </FormControl>
+        </div>
         {list(this.props)}
-        {/* {displayCars(this.props)} */}
         <Grid>
           <MyTypography align="center" variant="subtitle1">
             &copy;{new Date().getFullYear()} CarSooq | All right reserved |
@@ -170,6 +179,8 @@ export default class Search extends React.Component {
     );
   }
 }
+
+//render cars in stock
 const list = (props) => (
   <Grid
     container
