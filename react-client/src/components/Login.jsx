@@ -10,42 +10,51 @@ import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Header from "./header.jsx";
+
 const MyInput = styled(TextField)({
   color: "#0A194F",
   width: 400,
   margin: "35px 35px 50px 50px",
 });
+
 const MyButton = styled(Button)({
   width: 100,
   margin: "auto",
   backgroundColor: "#0A194F",
   color: "#F9FBE7",
 });
+
 const Mypaper = styled(Paper)({
   width: 515,
   height: 480,
   margin: "100px",
 });
+
 var MyBox = styled(Box)({
   backgroundColor: "#0A194F",
 });
+
 let formUsernameIsValid = false;
 let formPasswordIsValid = false;
+
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = { username: "", password: "" };
   }
+
   //method to prevent users from login if they didn't write their username
   handleUsername(event) {
     this.setState({ username: event.target.value });
     if (this.state.username !== undefined) formUsernameIsValid = true;
   }
+
   //method to prevent users from login if they didn't write their password
   handlePassword(event) {
     this.setState({ password: event.target.value });
     if (this.state.password !== undefined) formPasswordIsValid = true;
   }
+
   //getting (retrieving) user's data from the server (token)
   loginHandler(token) {
     $.ajax({
@@ -64,6 +73,7 @@ export default class Login extends React.Component {
       },
     });
   }
+
   //send user's data along with the request to the server where we can verify users ans store tokens in their local storage
   handleClick() {
     var cred = { username: this.state.username, password: this.state.password };
@@ -83,6 +93,7 @@ export default class Login extends React.Component {
       },
     });
   }
+
   //render the login form
   render() {
     return (
