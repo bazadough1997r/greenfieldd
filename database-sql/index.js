@@ -3,12 +3,12 @@ var data = require('./data.json');
 
 //edit your user and password
 //our database called stock
-var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "Lousan97*",
-    database: "stock",
-});
+// var con = mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: "Lousan97*",
+//     database: "stock",
+// });
 
 //connecting mysql and creating 2 tables in our stock; called cars & users
 con.connect(function(err) {
