@@ -14,12 +14,12 @@ import Header from "./header.jsx";
 const MyInput = styled(TextField)({
   color: "#0A194F",
   width: 400,
-  margin: "20px 40px 50px 50px",
+  margin: "35px 35px 50px 50px",
 });
 
 const MyButton = styled(Button)({
   width: 100,
-  margin: "0px 100px 0px 200px",
+  margin: "auto",
   backgroundColor: "#0A194F",
   color: "#F9FBE7",
 });

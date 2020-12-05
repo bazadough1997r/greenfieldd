@@ -25,8 +25,10 @@ import {
   responsiveFontSizes,
   MuiThemeProvider,
 } from "@material-ui/core";
+
 var theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -35,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
 }));
+
 const MyButton = styled(Button)({
   border: 0,
   borderRadius: 3,
@@ -45,14 +48,17 @@ const MyButton = styled(Button)({
   fontSize: "18px",
   color: "#0A194F",
 });
+
 var Mypaper = styled(Paper)({
   width: 1500,
   height: 600,
   backgroundColor: "#0A194F",
 });
+
 var MyTypography = styled(Typography)({
   color: "#0A194F",
 });
+
 export default function AboutUS() {
   const classes = useStyles();
   return (

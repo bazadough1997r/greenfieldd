@@ -22,6 +22,13 @@ const Mypaper = styled(Paper)({
   height: 500,
 });
 
+const MyButton = styled(Button)({
+  width: 100,
+  margin: "auto",
+  backgroundColor: "#0A194F",
+  color: "#F9FBE7",
+});
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -47,8 +54,7 @@ export default function NaveBar() {
           container
           direction="row"
           justify="center"
-          alignItems="center"
-          justify="center">
+          alignItems="center">
           <Mypaper>
             <Typography
               component="div"
@@ -67,13 +73,13 @@ export default function NaveBar() {
               Welcome to CarSooq where you can easily pick your dream car!
             </Typography>
             <form>
-              <Button
+              <MyButton
                 variant="contained"
                 color="primary"
                 fullWidth
                 onClick={handleLogoutClick}>
                 Log Out
-              </Button>
+              </MyButton>
             </form>
           </Mypaper>
         </Grid>
@@ -86,6 +92,7 @@ export default function NaveBar() {
   );
 }
 
+//when user clcks on logout => dlete token from local storage
 function handleLogoutClick(e) {
   e.preventDefault();
   console.log("The link was clicked.");

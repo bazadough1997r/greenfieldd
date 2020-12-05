@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-//Get request to render all cars in stock table when opening the inventory page.
+//Get request to render all cars in stock db table when opening the inventory page.
 app.get("/allcars", (req, res) => {
     let query = `SELECT * FROM cars`
     myDB.con.query(query, (err, results) => {
@@ -24,8 +24,7 @@ app.get("/allcars", (req, res) => {
     })
 })
 
-const users = [];
-//save data from signup page to users table
+//save data from signup page to users table in mysql
 app.post('/signup', (req, res) => {
     let firstName = req.body.firstName;
     let lastName = req.body.lastName
@@ -41,8 +40,7 @@ app.post('/signup', (req, res) => {
 })
 
 //Login
-
-//dealing with passwords for the first time
+//dealing with passwords (hashing and salting)
 app.post('/users', async (req, res) => {
     console.log("Hello hashing", req.body.username)
     try {
@@ -64,7 +62,7 @@ app.post('/users', async (req, res) => {
     }
 })
 
-//compare users from login page with db
+//compare users from login page with db, if the user is verified, give him a token if not, detect if the user exist or if his username matches with his hashed password
 app.post('/login', async (req, res) => {
 
     var username = req.body.username;
@@ -90,9 +88,8 @@ app.post('/login', async (req, res) => {
     })
 })
 
+//verify the token before let the user enter a private route
 function authenticateToken(req, res, next) {
-    console.log(req.query.token.accessToken, "evvvvvvv");
-    //console.log(req.query.token, "from posts server")
     const token = req.query.token.accessToken;
     if (!token)
         res.status(400).send("we need a token");
@@ -109,7 +106,7 @@ app.get('/posts', authenticateToken, (req, res) => {
     res.status(200).send("you are Authenticated");
 })
 
-//search a car by filtering
+//search a car by filtering code
 app.post('/inventory', (req, res) => {
     let brand = req.body.object.brand;
     let year = req.body.object.year;
@@ -155,6 +152,7 @@ app.post('/inventory', (req, res) => {
     }
 });
 
+// Handles any requests that don't match the ones above
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/../react-client/dist/index.html'));
 });

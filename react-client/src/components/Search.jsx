@@ -11,14 +11,17 @@ import Typography from "@material-ui/core/Typography";
 import { styled } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Header from "./header.jsx";
+
 var MyTypography = styled(Typography)({
   color: "#0A194F",
 });
+
 export default class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = { brand: "", year: "", colour: "", price: "" };
   }
+
   onChangeBrandHandler(event) {
     this.setState(
       {
@@ -29,6 +32,7 @@ export default class Search extends React.Component {
       },
     );
   }
+
   onChangeYearHandler(event) {
     this.setState(
       {
@@ -39,6 +43,7 @@ export default class Search extends React.Component {
       },
     );
   }
+
   onChangeColourHandler(event) {
     this.setState(
       {
@@ -49,6 +54,7 @@ export default class Search extends React.Component {
       },
     );
   }
+
   onChangePriceHandler(event) {
     this.setState(
       {
@@ -59,6 +65,8 @@ export default class Search extends React.Component {
       },
     );
   }
+
+  //search by using filters with the options in stock
   render() {
     return (
       <div>
@@ -171,6 +179,8 @@ export default class Search extends React.Component {
     );
   }
 }
+
+//render cars in stock
 const list = (props) => (
   <Grid
     container

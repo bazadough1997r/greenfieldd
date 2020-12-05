@@ -10,30 +10,36 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 import Header from "./header.jsx";
+
 var MyInput = styled(TextField)({
   color: "#0A194F",
   width: 200,
   margin: "0px 0px 30px 30px",
 });
+
 var MyTextField = styled(TextField)({
   color: "#0A194F",
   width: 400,
   margin: "20px 40px 10px 50px",
 });
+
 const MyButton = styled(Button)({
   width: 100,
-  margin: "0px 100px 0px 200px",
+  margin: "auto",
   backgroundColor: "#0A194F",
   color: "#F9FBE7",
 });
+
 var Mypaper = styled(Paper)({
   width: 510,
   height: 550,
   margin: "100px",
 });
+
 var MyBox = styled(Box)({
   backgroundColor: "#0A194F",
 });
+
 export default class Signup extends React.Component {
   constructor(props) {
     super(props);
@@ -47,9 +53,11 @@ export default class Signup extends React.Component {
     this.onChangeHandle = this.onChangeHandle.bind(this);
     this.submitHandle = this.submitHandle.bind(this);
   }
+
   onChangeHandle(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
+
   submitHandle(firstName, lastName, username, email, password) {
     console.log(this.state.firstName, this.state.lastName);
     var info = {
@@ -59,6 +67,8 @@ export default class Signup extends React.Component {
       email: this.state.email,
       password: this.state.password,
     };
+
+    //password strength test
     if (
       info.firstName == "" ||
       info.lastName == "" ||
@@ -70,15 +80,15 @@ export default class Signup extends React.Component {
     if (0 < info.password.length && info.password.length < 8) {
       alert("Your password is too short, try to make it 8 chars or more!");
     } else {
-      // for hashing the password
+      //send user's data along with the request to the server where we can hash the password
       $.ajax({
         url: "/users",
         method: "POST",
         data: JSON.stringify(info),
         contentType: "application/json",
         success: (user) => {
-          // if hashing succeded the save the users data
-          console.log(user, "hashing successeded from clientside");
+          // if hashing succeded then save the users data
+          console.log("hashing successeded from clientside");
           $.ajax({
             url: "/signup",
             method: "POST",
@@ -99,6 +109,8 @@ export default class Signup extends React.Component {
       });
     }
   }
+
+  //render the signup form
   render() {
     return (
       <MyBox>
@@ -109,7 +121,6 @@ export default class Signup extends React.Component {
             alignContent="center"
             container
             direction="row"
-            justify="center"
             alignItems="center"
             justify="center">
             <Mypaper>
@@ -138,7 +149,7 @@ export default class Signup extends React.Component {
                 </p>
                 <MyTextField
                   id="outlined-basic"
-                  label="userName"
+                  label="Username"
                   variant="outlined"
                   name="username"
                   onChange={this.onChangeHandle}
