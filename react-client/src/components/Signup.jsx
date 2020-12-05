@@ -53,11 +53,9 @@ export default class Signup extends React.Component {
     this.onChangeHandle = this.onChangeHandle.bind(this);
     this.submitHandle = this.submitHandle.bind(this);
   }
-
   onChangeHandle(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
-
   submitHandle(firstName, lastName, username, email, password) {
     console.log(this.state.firstName, this.state.lastName);
     var info = {
@@ -67,8 +65,6 @@ export default class Signup extends React.Component {
       email: this.state.email,
       password: this.state.password,
     };
-
-    //password strength test
     if (
       info.firstName == "" ||
       info.lastName == "" ||
@@ -80,14 +76,14 @@ export default class Signup extends React.Component {
     if (0 < info.password.length && info.password.length < 8) {
       alert("Your password is too short, try to make it 8 chars or more!");
     } else {
-      //send users data along with the request to the server where we can hash the password
+      // for hashing the password
       $.ajax({
         url: "/users",
         method: "POST",
         data: JSON.stringify(info),
         contentType: "application/json",
         success: (user) => {
-          //if hashing succeded the save the users data
+          // if hashing succeded the save the users data
           console.log(user, "hashing successeded from clientside");
           $.ajax({
             url: "/signup",
