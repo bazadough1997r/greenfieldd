@@ -51,7 +51,7 @@ export default class Header extends React.Component {
     return (
       <div>
         <Grid>
-          <AppBar color="default">
+          <AppBar color="white">
             <MyToolbar>
               <Grid container direction="row" justify="space-between">
                 <img
