@@ -25,8 +25,10 @@ import {
   responsiveFontSizes,
   MuiThemeProvider,
 } from "@material-ui/core";
+
 var theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -35,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
 }));
+
 const MyButton = styled(Button)({
   border: 0,
   borderRadius: 3,
@@ -45,14 +48,17 @@ const MyButton = styled(Button)({
   fontSize: "18px",
   color: "#0A194F",
 });
+
 var Mypaper = styled(Paper)({
   width: 1500,
   height: 600,
   backgroundColor: "#0A194F",
 });
+
 var MyTypography = styled(Typography)({
   color: "#0A194F",
 });
+
 export default function AboutUS() {
   const classes = useStyles();
   return (
@@ -108,7 +114,7 @@ export default function AboutUS() {
                   well.
                 </Typography>
               </Grid>
-              <Grid style={{ padding: "5px 30px 0px 30px" }}>
+              <Grid style={{ padding: "0" }}>
                 <Grid item xs={2}>
                   <Grid>
                     <Typography
@@ -119,7 +125,7 @@ export default function AboutUS() {
                         fontSize: 25,
                         padding: "10px 5px 0px 5px",
                       }}>
-                      <b>Contact us</b>
+                      <b>Contact us:</b>
                       <br></br>
                       <br></br>{" "}
                     </Typography>
@@ -141,10 +147,9 @@ export default function AboutUS() {
                       +962 7 9672 0978
                     </Typography>
                   </Grid>
-                </Grid>
+
                 <MailOutlineIcon
-                  style={{ color: lightGreen[50], fontSize: 35 }}
-                />
+                  style={{ color: lightGreen[50], fontSize: 35 }}/>
                 <Grid>
                   <Typography
                     component="div"
@@ -154,12 +159,13 @@ export default function AboutUS() {
                       color: "#F9FBE7",
                       fontStyle: "italic",
                       fontSize: 25,
-                      padding: "10px 3px 0px 5px",
+                      padding: "10px 5px 0px 5px",
                       margin: "-50px 10px 10px 50px",
                     }}>
                     carsooq@join.com
                   </Typography>
                 </Grid>
+              </Grid>
               </Grid>
             </Paper>{" "}
           </Grid>
