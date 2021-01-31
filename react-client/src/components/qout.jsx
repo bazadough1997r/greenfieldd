@@ -20,6 +20,7 @@ import Header from "./header.jsx";
 import { blue } from "@material-ui/core/colors";
 import { lightGreen } from "@material-ui/core/colors";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
+import { RemoveScrollBar } from "react-remove-scroll-bar";
 import {
   createMuiTheme,
   responsiveFontSizes,
@@ -66,7 +67,9 @@ export default function AboutUS() {
       style={{
         minHeight: "100vh",
         position: "relative",
-      }}>
+      }}
+    >
+      <RemoveScrollBar />
       <MuiThemeProvider theme={theme}>
         <Header />
         <br></br>
@@ -82,7 +85,8 @@ export default function AboutUS() {
             alignItems="stretch"
             justify="center"
             wrap="wrap"
-            direction="row">
+            direction="row"
+          >
             <Paper style={{ backgroundColor: "#0A194F" }}>
               <Grid
                 item
@@ -93,7 +97,8 @@ export default function AboutUS() {
                 alignItems="stretch"
                 alignItems="stretch"
                 justify="center"
-                wrap="wrap">
+                wrap="wrap"
+              >
                 <Typography
                   component="div"
                   style={{
@@ -101,7 +106,8 @@ export default function AboutUS() {
                     fontStyle: "italic",
                     fontSize: 30,
                     padding: "40px 30px 0px 30px",
-                  }}>
+                  }}
+                >
                   <b>Welcome to CarSooq</b>
                   <br></br>
                   <br></br>
@@ -124,7 +130,8 @@ export default function AboutUS() {
                         fontStyle: "italic",
                         fontSize: 25,
                         padding: "10px 5px 0px 5px",
-                      }}>
+                      }}
+                    >
                       <b>Contact us:</b>
                       <br></br>
                       <br></br>{" "}
@@ -142,30 +149,33 @@ export default function AboutUS() {
                         fontSize: 25,
                         padding: "10px 5px 0px 5px",
                         margin: "-50px 10px 10px 40px",
-                      }}>
+                      }}
+                    >
                       {" "}
                       +962 7 9672 0978
                     </Typography>
                   </Grid>
 
-                <MailOutlineIcon
-                  style={{ color: lightGreen[50], fontSize: 35 }}/>
-                <Grid>
-                  <Typography
-                    component="div"
-                    style={{
-                      height: "7vh",
-                      width: "100vh",
-                      color: "#F9FBE7",
-                      fontStyle: "italic",
-                      fontSize: 25,
-                      padding: "10px 5px 0px 5px",
-                      margin: "-50px 10px 10px 50px",
-                    }}>
-                    carsooq@join.com
-                  </Typography>
+                  <MailOutlineIcon
+                    style={{ color: lightGreen[50], fontSize: 35 }}
+                  />
+                  <Grid>
+                    <Typography
+                      component="div"
+                      style={{
+                        height: "7vh",
+                        width: "100vh",
+                        color: "#F9FBE7",
+                        fontStyle: "italic",
+                        fontSize: 25,
+                        padding: "10px 5px 0px 5px",
+                        margin: "-50px 10px 10px 50px",
+                      }}
+                    >
+                      carsooq@join.com
+                    </Typography>
+                  </Grid>
                 </Grid>
-              </Grid>
               </Grid>
             </Paper>{" "}
           </Grid>
