@@ -40,7 +40,12 @@ let formPasswordIsValid = false;
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: "", password: "" };
+    this.state = {
+      username: "",
+      password: "",
+      usernameError: "",
+      passwordError: "",
+    };
   }
 
   //method to prevent users from login if they didn't write their username
@@ -74,25 +79,56 @@ export default class Login extends React.Component {
     });
   }
 
-  //send user's data along with the request to the server where we can verify users ans store tokens in their local storage
   handleClick() {
-    var cred = { username: this.state.username, password: this.state.password };
-    var that = this;
-    $.ajax({
-      url: "/login",
-      method: "POST",
-      data: JSON.stringify(cred),
-      contentType: "application/json",
-      success: function (data) {
-        console.log("POST req/handleClick sent successfully!");
-        localStorage.setItem("token", data);
-        that.loginHandler(data);
-      },
-      error: function (err) {
-        console.log(err, "POST req/handleClick failed!");
-      },
-    });
+    this.onSubmit(this.state.value);
+    this.handleSubmit(this.state.value);
+    console.log(this.state, "handleClickkkkkkk");
   }
+
+  validate() {
+    let usernameError = "";
+    let passwordError = "";
+    if (!this.state.username) {
+      usernameError =
+        "Please fill your username and try to make it less than 20 characters!";
+    }
+    if (!this.state.password) {
+      passwordError =
+        "Please enter your password and try to make it more than 8 characters!";
+    }
+    if (usernameError || passwordError) {
+      this.setState({ usernameError, passwordError });
+      return false;
+    }
+    return true;
+  };
+
+  handleSubmit(event) {
+    const isValid = this.validate();
+    if (isValid) {
+      console.log(this.state);
+    }
+  };
+
+    //send user's data along with the request to the server where we can verify users ans store tokens in their local storage
+    onSubmit() {
+      var cred = { username: this.state.username, password: this.state.password };
+      var that = this;
+      $.ajax({
+        url: "/login",
+        method: "POST",
+        data: JSON.stringify(cred),
+        contentType: "application/json",
+        success: function (data) {
+          console.log("POST req/handleClick sent successfully!");
+          localStorage.setItem("token", data);
+          that.loginHandler(data);
+        },
+        error: function (err) {
+          console.log(err, "POST req/handleClick failed!");
+        },
+      });
+    }
 
   //render the login form
   render() {
@@ -118,7 +154,7 @@ export default class Login extends React.Component {
                 }}
               >
                 <img
-                  src="https://scontent.famm5-1.fna.fbcdn.net/v/t1.0-9/128255422_227091088758997_7058702321390752154_n.jpg?_nc_cat=108&ccb=2&_nc_sid=730e14&_nc_eui2=AeEqFQYaN_ad4f9gK-R_00w0xeq3jpBC8OPF6reOkELw4wT-RH0yveh5W6rCgR4sTojyscWbVB4AC485fRaU9tmG&_nc_ohc=ige5aDJwuj0AX_nHzs2&_nc_oc=AQmh70KqaJc_XuRjsXfrEZ2TFCRNhUgAlWxjabqZ2UOrLvolXf7W1N34wTttPuSPf14&_nc_ht=scontent.famm5-1.fna&oh=aaea198d1eb4f019d2c150895411b2c1&oe=5FE68806"
+                  src="https://scontent.famm9-1.fna.fbcdn.net/v/t1.0-9/144436222_942272606579939_9019314260912267252_n.jpg?_nc_cat=108&ccb=2&_nc_sid=730e14&_nc_eui2=AeHJK8uAV-ooiHusZuJY9wC37qkhcc9zS1zuqSFxz3NLXN3OYeTQy567Hjg1L9Ujuu5NIgwT_cGJgCxPtoZiR1pN&_nc_ohc=Qgiw0GzAIGMAX_y6sck&_nc_ht=scontent.famm9-1.fna&oh=cabc7749e45cd36325d989900fa93688&oe=603AB14D"
                   width="150"
                   height="70"
                 ></img>
@@ -134,6 +170,7 @@ export default class Login extends React.Component {
                   value={this.state.username}
                   onChange={this.handleUsername.bind(this)}
                 />
+                <div style={{ color: "red" }}>{this.state.usernameError}</div>
                 <MyInput
                   variant="outlined"
                   margin="normal"
@@ -144,8 +181,8 @@ export default class Login extends React.Component {
                   value={this.state.password}
                   onChange={this.handlePassword.bind(this)}
                 />
+                <div style={{ color: "red" }}>{this.state.passwordError}</div>
                 <Link href="/signup">
-
                   <Typography style={{ margin: "10px 30px 40px 50px" }}>
                     Create account?..
                   </Typography>
