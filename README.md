@@ -75,3 +75,5 @@ From inside the repo directory
 - npm run react-dev.
 
 ## Demo Video
+
+[CarSooq Video](https://www.youtube.com/watch?v=s1oRZDVN0Hk&t=7s)
