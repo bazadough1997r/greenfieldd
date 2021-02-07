@@ -76,4 +76,4 @@ From inside the repo directory
 
 ## Demo Video
 
-[CarSooq Video](https://www.youtube.com/watch?v=s1oRZDVN0Hk&t=7s)
+[CarSooq Video](https://www.youtube.com/watch?v=LZirEIOTir4)
